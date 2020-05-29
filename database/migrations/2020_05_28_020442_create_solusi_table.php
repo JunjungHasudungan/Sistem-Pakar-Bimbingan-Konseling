@@ -14,7 +14,7 @@ class CreateSolusiTable extends Migration
     public function up()
     {
         Schema::create('solusi', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->char('kodeSolusi');
             $table->text('keteranganSolusi');
             $table->integer('permasalahan_id');
@@ -32,3 +32,9 @@ class CreateSolusiTable extends Migration
         Schema::dropIfExists('solusi');
     }
 }
+
+/*
+            $table->id();
+            $table->char('kodePenyakit');
+            $table->char('kodeGejala');
+*/

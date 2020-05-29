@@ -17,13 +17,8 @@
                   <tr>
                       <th style="width: 1%"> No </th>
                       <th style="width: 4%"> Kode Relasi </th>
-                        @foreach($gejala as $g)
-                      <th style="width: 10%"> {{$g->kodeGejala}}  </th>
-                        @endforeach
-                        @foreach($permasalahan as $p)
-                      <th style="width: 10%"> {{$p->kodePermasalahan}}  </th>
-                        @endforeach
-                      <th style="width: 20%"> Data Permasalahan </th>
+                      <th style="width: 10%">  Nama Gejala  </th>
+                      <th style="width: 10%"> Nama Permasalahan  </th>
                       <th style="width: 25%"> Aksi </th>
                   </tr>
               </thead>

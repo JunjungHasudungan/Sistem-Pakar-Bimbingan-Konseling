@@ -14,9 +14,10 @@ class CreatePermasalahanTable extends Migration
     public function up()
     {
         Schema::create('permasalahan', function (Blueprint $table) {
-                $table->increments('id');
-                $table->char('kodePermasalahan');
-                $table->string('keteranganPermasalahan');
+            $table->increments('id');
+            $table->char('kodePermasalahan');
+            $table->string('keteranganPermasalahan');
+            $table->timestamps();
         });
     }
 

@@ -7,7 +7,7 @@
                     <strong>Tambah Data gejala</strong>
                 </div>
                 <div class="card-body">
-                  <form method="post" action="/gejala/store">
+                  <form method="POST" action="{{route('gejala.store')}}">
                     @csrf
                       <div class="form-group">
                         <label for="exampleFormControlSelect1">Kode Gejala</label>
@@ -39,20 +39,6 @@
                             <option value="KG25" >KG25</option>
                           </select>
                         </div>
-                         
-                        <div class="form-group {{ $errors->has('permasalahan_id') ? ' has-error' : '' }}">
-                          <label for="permasalahan_id"> <strong> Permasalahan </strong></label>
-                            <select name="permasalahan_id" class="form-control" required>
-                              @foreach ($permasalahan as $p)
-                                <option value="{{ $p->id }}">{{ $p->keteranganPermasalahan }}</option>
-                              @endforeach
-                            </select>
-                            @if ($errors->has('permasalahan_id'))
-                              <span class="help-block">
-                                <strong>{{ $errors->first('permasalahan_id') }}</strong>
-                              </span>
-                            @endif
-                        </div>
                         <div class="form-group">
                           <label for="namaGejala"><strong> Keterangan Gejala</strong></label>
                             <input type="text" name="namaGejala" value="{{old('namaGejala')}}" class="form-control @error('namaGejala') is-invalid @enderror"  id="namaGejala" >
@@ -62,13 +48,6 @@
                                 </div>
                               @enderror
                          </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1"><strong> Jawaban </strong></label>
-                                <select type="text" name="jawaban" class="form-control" id="exampleFormControlSelect1">
-                                  <option value="Ya" >Ya</option>
-                                  <option value="Tidak" >Tidak</option>
-                                </select>
-                        </div>
                          <div class="form-group">
                             <input type="submit" class="btn btn-success" value="Simpan">
                           </div>

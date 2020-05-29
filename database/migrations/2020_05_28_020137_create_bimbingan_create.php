@@ -20,6 +20,7 @@ class CreateBimbinganCreate extends Migration
             $table->string('namaLengkap');
             $table->string('status');
             $table->char('jenisKelamin');
+            $table->timestamps();
         });
     }
 

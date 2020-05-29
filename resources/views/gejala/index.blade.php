@@ -25,8 +25,6 @@
                       <th style="width: 1%"> NO </th>
                       <th style="width: 10%"> Kode Gejala </th>
                       <th style="width: 30%"> Keterangan Gejala </th>
-                      <th style="width: 20%"> Permasalahan ID </th>
-                      <th style="width: 10%"> Jawaban</th>                      
                       <th style="width: 10%" style="text-decoration: center"> Aksi </th>
                   </tr>
               </thead>
@@ -36,8 +34,6 @@
                       <td> {{ $loop->iteration }} </td>
                       <td> {{ $g->kodeGejala }} </td>                      
                       <td> {{ $g->namaGejala }} </td>
-                      <td> {{ $g->permasalahan_id}} </td>
-                      <td> {{ $g->jawaban }} </td>
                       <td class="project-actions text-right">
                           <a class="btn btn-secondary btn-sm" href="{{route('gejala.show', $g->id)}}"><i data-feather="eye"></i>
                               View

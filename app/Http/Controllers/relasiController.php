@@ -14,12 +14,9 @@ class relasiController extends Controller
 {
        public function index()
     {
-        // $gejala =Gejala::all();
-        // $relasi = Relasi::find(2);
         $gejala = Gejala::all();
         $permasalahan = Permasalahan::all();
-        $relasi = DB::table('relasi')->paginate(5);
-        $relasi = Relasi::all();
+        $relasi = DB::table('basePengetahuan')->paginate(5);
         return view('Relasi.index',compact('permasalahan','gejala', 'relasi'));
 
         
@@ -32,11 +29,10 @@ class relasiController extends Controller
      */
     public function create()
     {   
-        // $solusi = Solusi::all()->pluck('keteranganSolusi', 'id');
-        $gejala = Gejala::all()->pluck('namaGejala','id');
-        $permasalahan = Permasalahan::pluck('keteranganPermasalahan', 'id');
-        $relasi = Relasi::all();
-        return view('Relasi.create',compact('relasi', 'permasalahan', 'gejala'));
+        $relasi = new Relasi();
+        $permasalahan = Permasalahan::all();
+        $gejala = Gejala::all();
+        return view('Relasi.create',['gejala' => $gejala, 'relasi' => $relasi, 'permasalahan' => $permasalahan]);
     }
 
     /**
@@ -47,15 +43,29 @@ class relasiController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'kodeRelasi' =>'required',
-            'permasalahan_id' => 'required'
+            'permasalahan_id' => 'required',
+            'gejala_id' => 'required'
         ]);
 
-       $relasi = Relasi::create($request->all());
-        return redirect('/relasi')->with('status', 'data relasi berhasil di tambahkan');
 
+        $checkRelasi = Relasi::where([
+            'permasalahan_id' => $request['permasalahan'],
+            'gejala_id' => $request['gejala'],
+        ])->first();
+
+        if ($checkRelasi !== null) {
+            return \Response::json(array("errors" => ['permasalahan' => 'The Penyakit and Gejala has already been taken.
+            ', 'gejala' => 'The Penyakit and Gejala has already been taken.']), 422);
+        }
+
+        $relasi = [
+            'permasalahan_id' => $request['penyakit'],
+            'gejala_id' => $request['gejala'],
+        ];
+
+        return Relasi::create($relasi);
     }
 
     /**

@@ -19,6 +19,7 @@ Route::get('/', function () {
 // Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('/gejala', 'GejalaController');
 // ->middleware('auth');
 Route::resource('/permasalahan', 'PermasalahanController');

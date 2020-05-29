@@ -7,9 +7,8 @@ use App\Models\Solusi;
 use App\Models\Gejala;
 use App\Models\Permasalahan;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 
-class GejalaControler extends Controller
+class GejalaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,8 @@ class GejalaControler extends Controller
      */
     public function index()
     {
-         $gejala = Gejala::all();
+
+
         $gejala = DB::table('gejala')->paginate(5);
         return view('gejala.index',compact('gejala'));
     }
@@ -30,7 +30,6 @@ class GejalaControler extends Controller
      */
     public function create()
     {
-        
         $gejala = Gejala::all();
         $permasalahan = Permasalahan::orderBy('keteranganPermasalahan')->get();
         // $solusi = Solusi::orderBy('keteranganSolusi')->get();
@@ -45,11 +44,9 @@ class GejalaControler extends Controller
      */
     public function store(Request $request)
     {
-        
-        $this->validate($request,[
+            $this->validate($request,[
             'kodeGejala' => 'required',
             'namaGejala' => 'required',
-            'permasalahan_id' =>'required'
         ]);
  
        $gejala = Gejala::create($request->all());
@@ -64,9 +61,7 @@ class GejalaControler extends Controller
      */
     public function show($id)
     {
-        
-        $gejala = Gejala::find($id);
-        return view('gejala.detail', compact('gejala'));
+        //
     }
 
     /**
@@ -77,9 +72,7 @@ class GejalaControler extends Controller
      */
     public function edit($id)
     {
-        
-        $gejala = Gejala::find($id);
-        return view('gejala.edit',compact('gejala'));
+        //
     }
 
     /**
@@ -91,16 +84,7 @@ class GejalaControler extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-            $this->validate($request,[
-            'kodeGejala' => 'required',
-            'namaGejala' => 'required',
-            'permasalahan_id' =>'required'
-        ]);
-
-        $gejala = Gejala::find($id);
-        $gejala->update($request->all());
-        return redirect()->route('gejala.index')->with('status', 'Dat Gejala Berhasil di Update');
+        //
     }
 
     /**
@@ -111,10 +95,6 @@ class GejalaControler extends Controller
      */
     public function destroy($id)
     {
-        
-        $gejala = Gejala::find($id);
-        $gejala->delete();
-
-        return redirect()->back()->with('status', 'Dat Gejala Berhasil di Dihapus');
+        //
     }
 }

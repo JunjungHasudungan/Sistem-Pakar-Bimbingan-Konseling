@@ -1,8 +1,5 @@
-<!-- Turunan file yang akan disisipkan -->
 @extends('layouts.master')
-<!-- Judul File -->
-@section('title','Sistem-Pakar Permasalahan|create')
-<!-- File yang akan disisipkan ke dalam file lain -->
+
 @section('permasalahanCreate')
   <div class="container">
             <div class="card mt-5">
@@ -10,7 +7,7 @@
                     <strong>Tambah Data Permasalahan</strong>
                 </div>
                 <div class="card-body">
-                        <form method="post" action="/permasalahan/store">
+                        <form method="POST" action="{{route('permasalahan.store')}}">
                                                  @csrf
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1"><strong> Kode Permasalahan </strong></label>

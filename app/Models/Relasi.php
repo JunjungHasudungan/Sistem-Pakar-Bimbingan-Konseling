@@ -2,23 +2,24 @@
 
 namespace App\Models;
 use App\Models\Gejala;
+use App\Models\Permasalahan;
 use App\Models\Bimbingan;
 use Illuminate\Database\Eloquent\Model;
 
 class Relasi extends Model
 {
-    protected $table = 'relasi';
-    protected $fillable = ['kodeRelasi', 'permasalahan_id', 'bimbingan_id', 'gejala_id'];
+    protected $table = 'basePengetahuan';
+    protected $fillable = ['kodeBasePengetahuan', 'permasalahan_id', 'gejala_id'];
     protected $guarded = [];
 
-    public function Relasi()
+    public function permasalahan()
     {
-    	$this->belongsTo(Relasi::class);
+    	$this->belongsTo(Permasalahan::class, 'permasalahan_id');
     }
 
-    public function Permasalahan()
+    public function gejala()
     {
-    	$this->belongsTo(Relasi::class);
+        $this->belongsTo(Gejala::class, 'gejala_id');
     }
 
     public function bimbingan()

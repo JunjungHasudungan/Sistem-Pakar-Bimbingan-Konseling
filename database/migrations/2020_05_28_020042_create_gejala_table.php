@@ -17,8 +17,6 @@ class CreateGejalaTable extends Migration
             $table->increments('id');
             $table->string('kodeGejala', 10);
             $table->string('namaGejala');
-            $table->string('jawaban');
-            $table->integer('permasalahan_id')->unsigned();
             $table->timestamps();
         });
     }

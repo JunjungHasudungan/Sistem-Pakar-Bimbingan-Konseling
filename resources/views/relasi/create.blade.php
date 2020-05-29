@@ -39,45 +39,26 @@
                                                       <option value="KG25" >KG25</option>
                                                     </select>
                                                 </div>
-                      <!-- Data Gejala -->
-                        <div class="form-group {{ $errors->has('permasalahan_id') ? ' has-error' : '' }}">
-                          <label for="permasalahan_id"> <strong> Permasalahan </strong></label>
-                            <select name="permasalahan_id" class="form-control" required>
-                              @foreach ($permasalahan as $key => $p)
-                                <option value="{{ $key }}">{{ $p }}</option>
-                              @endforeach
-                            </select>
-                            @if ($errors->has('permasalahan_id'))
-                              <span class="help-block">
-                                <strong>{{ $errors->first('permasalahan_id') }}</strong>
-                              </span>
-                            @endif
-                        </div>
-
-                      <!-- Data Gejala -->
+                  <div class="form-group">
+                    <label class="control-label">Nama permasalahan</label>
+                      <select id="permasalahan" name="permasalahan" class="form-control">
+                        <option value=""> </option>
+                          @foreach($permasalahan as $p)
+                            <option value="<?=$p->id?>"
+                              @if ($p->id == $relasi->permasalahan_id) selected="selected" @endif> <?= $p->keteranganPermasalahan?></option>  @endforeach
+                          </select>
+                      </div>
                       <div class="form-group">
-                          <label for="solusi_id"><strong> Keterangan Gejala </strong></label>
-                        <div class="custom-control custom-checkbox">
-                          @foreach($gejala as $key => $g)
-                             <input class="custom-control-input" type="checkbox" {{ old('solusi_id') == $key ? 'selected' : '' }} name="solusi_id" id="customCheckbox1" value=" {{$key}}">
-                            <label for="customCheckbox1" class="custom-control-label"> {{$g}} </label><br>
-                          @endforeach
-                        </div>
-{{--                           <div class="form-group">
-                            <label class="required" for="gejala_id"><strong> Keterangan Gejala </strong><</label>
-                            <select class="form-control select2 {{ $errors->has('category') ? 'is-invalid' : '' }}" name="gejala_id" id="gejala_id" required> =
-                                @foreach($categories as $id => $category)
-                                    <option value="{{ $id }}" {{ old('gejala_id') == $id ? 'selected' : '' }}>{{ $category }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('category'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('category') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.meal.fields.category_helper') }}</span>
-                        </div> --}}
-
+                          <label for="nama" class="control-label" > Keterangan Gejala</label>
+                          <select id="gejala" name="gejala" class="form-control">
+                              <option value="" placeholder =" Keterangan Gejala" ></option>
+                              @foreach($gejala as $g)
+                                  <option value="<?=$g->id?>
+                                      " @if ($g->id == $relasi->gejala_id) selected="selected" @endif> <?= $g->namaGejala?>
+                                  </option>
+                              @endforeach
+                          </select>
+                      </div>
                       <div class="form-group">
                         <input type="submit" class="btn btn-success" value="Simpan">
                       </div> 

@@ -7,7 +7,7 @@
                     <strong>Tambah Data Bimbingan</strong>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="/bimbingan/store">
+                    <form method="POST" action="{{route('bimbingan.store')}}">
                         @csrf
                           <div class="form-group">
                             <label for="exampleFormControlSelect1"><strong>  Kode Bimbingan </strong></label>
