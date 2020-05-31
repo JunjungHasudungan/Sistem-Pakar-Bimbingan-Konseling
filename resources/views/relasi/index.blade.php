@@ -16,7 +16,6 @@
               <thead>
                   <tr>
                       <th style="width: 1%"> No </th>
-                      <th style="width: 4%"> Kode Relasi </th>
                       <th style="width: 10%">  Nama Gejala  </th>
                       <th style="width: 10%"> Nama Permasalahan  </th>
                       <th style="width: 25%"> Aksi </th>
@@ -26,7 +25,6 @@
               <tbody>
                   <tr>
                       <td> {{$loop->iteration}} </td>
-                      <td>{{$r->kodeRelasi}}</td>
                       <td>  {{$r->gejala_id}} </td>
                       <td> {{$r->permasalahan_id}} </td>
                       <td class="project-actions text-right">

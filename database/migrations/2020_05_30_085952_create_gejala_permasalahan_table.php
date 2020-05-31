@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBasePengetahuanTable extends Migration
+class CreateGejalaPermasalahanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateBasePengetahuanTable extends Migration
      */
     public function up()
     {
-        Schema::create('basePengetahuan', function (Blueprint $table) {
+        Schema::create('gejalaPermasalahan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('kodeBasePengetahuan');
             $table->integer('permasalahan_id')->unsigned();
             $table->integer('gejala_id')->unsigned();
             $table->timestamps();
@@ -39,6 +38,6 @@ class CreateBasePengetahuanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('basePengetahuan');
+        Schema::dropIfExists('gejalaPermasalahan');
     }
 }

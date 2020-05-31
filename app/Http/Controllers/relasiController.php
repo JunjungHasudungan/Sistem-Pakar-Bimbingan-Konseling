@@ -16,7 +16,7 @@ class relasiController extends Controller
     {
         $gejala = Gejala::all();
         $permasalahan = Permasalahan::all();
-        $relasi = DB::table('basePengetahuan')->paginate(5);
+        $relasi = DB::table('gejalaPermasalahan')->paginate(5);
         return view('Relasi.index',compact('permasalahan','gejala', 'relasi'));
 
         
@@ -31,7 +31,7 @@ class relasiController extends Controller
     {   
         $relasi = new Relasi();
         $permasalahan = Permasalahan::all();
-        $gejala = Gejala::all();
+        $gejala = Gejala::all()->pluck('namaGejala', 'id');
         return view('Relasi.create',['gejala' => $gejala, 'relasi' => $relasi, 'permasalahan' => $permasalahan]);
     }
 
@@ -44,11 +44,9 @@ class relasiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kodeRelasi' =>'required',
-            'permasalahan_id' => 'required',
-            'gejala_id' => 'required'
+            'permasalahan' => 'required',
+            'gejala' => 'required'
         ]);
-
 
         $checkRelasi = Relasi::where([
             'permasalahan_id' => $request['permasalahan'],
@@ -61,11 +59,25 @@ class relasiController extends Controller
         }
 
         $relasi = [
-            'permasalahan_id' => $request['penyakit'],
+            'permasalahan_id' => $request['permasalahan'],
             'gejala_id' => $request['gejala'],
         ];
-
-        return Relasi::create($relasi);
+            $arr = array();
+              foreach ($relasi as $key => $value) {
+                    if(is_array($value)) {
+                        foreach($value as $val){
+                            $arr[] = $val;
+                        }
+                    } else {
+                        $arr[] = $value;
+                    }
+                }
+                 $result = implode(" , ", $arr);
+                dd($result);
+        // $relasiHasil = implode(',', $checkRelasi);
+        // dd($relasiHasil);
+        //  Relasi::create($relasi);
+        // return redirect()->route('relasi.index');
     }
 
     /**

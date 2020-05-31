@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKonsellingTable extends Migration
+class CreateTmpKonsellingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateKonsellingTable extends Migration
      */
     public function up()
     {
-        Schema::create('konselling', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('bimbingan_id')->unsigned();
-            $table->integer('permasalahan_id')->unsigned();
+        Schema::create('tmpKonselling', function (Blueprint $table) {
+            $table->unsignedInteger('bimbingan_id')->nullable();
+            $table->unsignedInteger('permasalahan_id')->nullable();
+            $table->unsignedInteger('gejala')->nullable();
             $table->foreign('bimbingan_id')->references('id')->on('bimbingan')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('permasalahan_id')->references('id')->on('permasalahan')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ class CreateKonsellingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('konselling');
+        Schema::dropIfExists('tmpKonselling');
     }
 }

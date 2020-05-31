@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Relasi extends Model
 {
-    protected $table = 'basePengetahuan';
-    protected $fillable = ['kodeBasePengetahuan', 'permasalahan_id', 'gejala_id'];
+    protected $table = 'gejalaPermasalahan';
+    protected $fillable = [ 'permasalahan_id', 'gejala_id'];
     protected $guarded = [];
 
     public function permasalahan()

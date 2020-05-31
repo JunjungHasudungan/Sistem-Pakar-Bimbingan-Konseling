@@ -1,60 +1,29 @@
 @extends('layouts.master')
 
 @section('konsellingCreate')
-<!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Pilih Jawaban Ya atau Tidak </h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th style="width: 1%">NO</th>
-                  <th style="width: 30%">Pertanyaaan</th>
-                  <th style="width: 5%">Jawaban</th>
-                </tr>
-                </thead>
-                <tbody>
-                  @foreach($gejala as $g)
-                    <tr>
-                      <td> {{$loop->iteration}} </td>
-                      <td> {{$g->namaGejala}} </td>
-                      <td>
-                          <div class="form-group">
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="radio1">
-                              <label class="form-check-label">Ya</label>
-                            </div>
-                          <div class="form-group">
-                            <div class="form-check">
-                              <input class="form-check-input" type="radio" name="radio1">
-                              <label class="form-check-label">Tidak</label>
-                            </div>
-                          </div>
-                      </td>
-                    </tr>
-                  @endforeach
-                </tbody>
-                <tfoot>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-          </div>
-          <!-- /.card -->
+    <form action="{{ route('konsultasi.proses') }}" method="post">
+              {{ csrf_field() }}
 
-          <!-- /.card -->
+              <input type="hidden" name="nama" value="{{ old('nama', session('_old_input')['nama']) }}">
+              <input type="hidden" name="alamat" value="{{ old('alamat', session('_old_input')['alamat']) }}">
+              <input type="hidden" name="pekerjaan" value="{{ old('pekerjaan', session('_old_input')['pekerjaan']) }}">
+
+        <div class="panel-body">
+          <div class="form-group {{ $errors->has('gejala') ? 'has-error' : '' }}">
+            <label class="control-label">Gejala</label>
+
+            @foreach($gejalas as $gejala)
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="gejala[]" value="{{ $gejala->id }}">
+                  {{ 'G' . $gejala->id . ' - ' . $gejala->name }}
+                </label>
+              </div>
+            @endforeach
+          </div>
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
+        <div class="panel-footer">
+          <button type="submit" class="btn btn-success">Next</button>
+        </div>
+      </form>
 @stop

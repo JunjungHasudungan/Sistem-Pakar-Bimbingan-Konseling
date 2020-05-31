@@ -24,7 +24,7 @@ Route::resource('/gejala', 'GejalaController');
 // ->middleware('auth');
 Route::resource('/permasalahan', 'PermasalahanController');
 // ->middleware('auth');
-Route::resource('/relasi', 'relasiController');
+Route::resource('relasi', 'relasiController');
 // ->middleware('auth');
 Route::resource('/bimbingan', 'BimbinganController');
 // ->middleware('auth');

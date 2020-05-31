@@ -15,22 +15,16 @@ class Gejala extends Model
 
     public function permasalahan()
     {
-    	return $this->belongsTo(Permasalahan::class);
+    	return $this->belongsTo(Permasalahan::class, 'basepengetahuan');
     }
     
-    public function bimbingan()
-    {
-    	return $this->hasMany(Bimbingan::classs,'gejala_id','id');
-    }
-
-    public function solusi()
-    {
-        return $this->belongsToMany(Solusi::class);
+    public function bimbingan() {
+        return $this->belongsToMany(Bimbingan::class, 'tmpGejala');
     }
 
     public function relasi()
     {
-        return $this->belongsTo(Relasi::class);
+        return $this->belongsToMany(Relasi::class, 'basepengetahuan');
 
     }
 }

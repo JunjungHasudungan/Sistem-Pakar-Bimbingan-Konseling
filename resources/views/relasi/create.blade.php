@@ -39,25 +39,27 @@
                                                       <option value="KG25" >KG25</option>
                                                     </select>
                                                 </div>
-                  <div class="form-group">
-                    <label class="control-label">Nama permasalahan</label>
-                      <select id="permasalahan" name="permasalahan" class="form-control">
-                        <option value=""> </option>
-                          @foreach($permasalahan as $p)
-                            <option value="<?=$p->id?>"
-                              @if ($p->id == $relasi->permasalahan_id) selected="selected" @endif> <?= $p->keteranganPermasalahan?></option>  @endforeach
-                          </select>
-                      </div>
+          <div class="form-group">
+              <label class="control-label">Nama permasalahan</label>
+              <select id="permasalahan" name="permasalahan" class="form-control">
+                  <option value=""></option>
+                  @foreach($permasalahan as $P)
+                  <option value="<?=$P->id?>" @if ($P->id == $relasi->permasalahan_id) selected="selected" @endif>
+                    <?= $P->keteranganPermasalahan?>
+                  </option>
+                  @endforeach
+              </select>
+          </div>
                       <div class="form-group">
                           <label for="nama" class="control-label" > Keterangan Gejala</label>
-                          <select id="gejala" name="gejala" class="form-control">
-                              <option value="" placeholder =" Keterangan Gejala" ></option>
-                              @foreach($gejala as $g)
-                                  <option value="<?=$g->id?>
-                                      " @if ($g->id == $relasi->gejala_id) selected="selected" @endif> <?= $g->namaGejala?>
-                                  </option>
+                              <option value=""></option>
+                              @foreach($gejala as $id =>$g)
+                            <div class="checkbox">
+                                <label>
+                                  <input class="check" type="checkbox" name="gejala[]" value="{{ $id }}" {{ old('category_id') == $id ? 'selected' : '' }}>{{ $g }}
+                                </label>
+                            </div>
                               @endforeach
-                          </select>
                       </div>
                       <div class="form-group">
                         <input type="submit" class="btn btn-success" value="Simpan">

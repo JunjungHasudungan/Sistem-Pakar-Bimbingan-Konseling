@@ -41,18 +41,20 @@
                         </div>
                         <div class="form-group">
                           <label for="namaGejala"><strong> Keterangan Gejala</strong></label>
-                            <input type="text" name="namaGejala" value="{{old('namaGejala')}}" class="form-control @error('namaGejala') is-invalid @enderror"  id="namaGejala" >
-                              @error('namaGejala')
+                            <input type="text" name="namaGejala" value="{{old('namaGejala')}}" class="form-control {{-- @error('namaGejala') is-invalid @enderror --}}"  id="namaGejala" >
+{{--                               @error('namaGejala')
                                 <div class="invalid-feedback">
                                   {{$message}}
                                 </div>
-                              @enderror
+                              @enderror --}}
                          </div>
                          <div class="form-group">
                             <input type="submit" class="btn btn-success" value="Simpan">
                           </div>
                       </form>
- 
+                       @if($errors->all())
+                        @include('layouts.error')
+                      @endif
                 </div>
             </div>
         </div>

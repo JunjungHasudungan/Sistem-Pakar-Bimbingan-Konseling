@@ -30,10 +30,19 @@ class GejalaController extends Controller
      */
     public function create()
     {
-        $gejala = Gejala::all();
-        $permasalahan = Permasalahan::orderBy('keteranganPermasalahan')->get();
-        // $solusi = Solusi::orderBy('keteranganSolusi')->get();
-        return view('gejala.create',compact('permasalahan','gejala'));
+        $gejala = new Gejala;
+        $gejala = Gejala::where('namaGejala', title_case($request->input('namaGejala')))
+                ->first();
+        
+        $this->validate($request, [
+        'kodePermasalahan' => 'required',
+        'namaGejala' => 'required|min:10|max:200',
+            ]);
+
+        $gejala->namaGejala = title_case($request->input('namaGejala'));
+        $gejala->save();
+        // $permasalahan = Permasalahan::orderBy('keteranganPermasalahan')->get();
+        return view('gejala.create',compact('gejala'));
     }
 
     /**

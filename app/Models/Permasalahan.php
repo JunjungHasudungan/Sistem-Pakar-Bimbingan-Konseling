@@ -3,25 +3,25 @@
 namespace App\Models;
 use App\Models\Relasi;
 use App\Models\Solusi;
+use App\Models\Gejala;
 use Illuminate\Database\Eloquent\Model;
 
 class Permasalahan extends Model
 {
     protected $guarded = [];
     protected $table = 'permasalahan';
-    protected $fillable = ['kodePermasalahan','keteranganPermasalahan'];
+    protected $fillable = ['kodePermasalahan','keteranganPermasalahan', 'solusi'];
 
     
-    public function rules()
-    {
-    	return $this->belongsTo(Rules::class);
-    }
-
     public function gejala()
     {
-    	return $this->hasMany(Gejala::class);
+    	return $this->belongsToMany(Gejala::class, 'basepengetahuan')->withTimestamps();;
     }
 
+/*    public function attachGejala($gejala_id) {
+        $gejala = Gejala::find($gejala_id);
+        return $this->gejala()->attach($gejala);
+    }*/
     public function solusi()
     {
         return $this->hasMany(Solusi::class);

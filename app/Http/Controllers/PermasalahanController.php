@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Permasalahan;
+use App\Models\Gejala;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,8 +26,8 @@ class PermasalahanController extends Controller
      */
 
         public function create()
-    {   
-        return view('permasalahan.Create');
+    {   $gejala = Gejala::all();
+        return view('permasalahan.Create', compact('gejala'));
     }
 
     /**
@@ -38,10 +39,20 @@ class PermasalahanController extends Controller
     public function store(Request $request)
 
     {   
+        $permasalahan = new Permasalahan();
          $this->validate($request,[
             'kodePermasalahan' => 'required',
-            'keteranganPermasalahan' => 'required'
+            'keteranganPermasalahan' => 'required',
+            'solusi' => 'required'
         ]);
+         $permasalahan->kodePermasalahan = $request->kodePermasalahan;
+         $permasalahan->keteranganPermasalahan = $request->keteranganPermasalahan;
+         $permasalahan->solusi = $request->solusi;
+         $permasalahan->save();
+
+/*        foreach ($request->gejala as $gejala_id) {
+            $permasalahan->attachGejala($gejala_id);
+        }*/
          $permasalahan = Permasalahan::create($request->all());
          return redirect()->route('permasalahan.index')->with('status','Data Permasalahan Berhasil Di Tambah');      
     }

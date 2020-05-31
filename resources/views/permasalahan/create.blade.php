@@ -49,6 +49,11 @@
                                         </div>
                                     @enderror
                          </div>
+                      <div class="form-group">
+                        <label>Solusi Permasalahan :</label>
+                        <textarea name="solusi" class="form-control" rows="4" required="required" placeholder="Jelaskan Solusi mengenai Permasalahan ini..."></textarea>
+                      </div>
+
                          
                           <div class="card-footer">
                               <input type="submit" class="btn btn-success" value="Simpan">

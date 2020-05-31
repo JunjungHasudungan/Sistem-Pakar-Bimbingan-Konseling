@@ -17,6 +17,7 @@ class CreatePermasalahanTable extends Migration
             $table->increments('id');
             $table->char('kodePermasalahan');
             $table->string('keteranganPermasalahan');
+            $table->text('solusi');
             $table->timestamps();
         });
     }
