@@ -37,9 +37,11 @@
                             <a class="btn btn-info btn-sm" href=" {{route('permasalahan.edit', $p->id)}} ">
                                 <i class="fas fa-pencil-alt"></i>Edit
                             </a>
-                            <a class="btn btn-danger btn-sm" href="{{route('permasalahan.destroy', $p->id)}}">
-                                <i class="fas fa-trash"></i>Delete
-                            </a>
+                            <form action="{{route('permasalahan.destroy',$p->id)}}" method="post" style="display: inline-block;">
+                        @csrf
+                          @method('DELETE')
+                            <input type="submit" name="" value="Delete" class="btn btn-danger btn-sm">
+                      </form>
                         </td>
                     </tr>
               @endforeach

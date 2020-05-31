@@ -9,13 +9,11 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('gejala.create')}}" class="nav-link">Tambah Data</a>
       </li>
-        @section('notifGejala')
-          @if(session('status'))
-            <div class="alert alert-success" role="alert">
-              {{session('status')}}  
-            </div>
-          @endif
-        @stop
+        @if(session('status'))
+          <div class="alert alert-success" role="alert">
+            {{session('status')}}  
+          </div>
+        @endif
         <div class="card-body p-0">
           <table class="table table-striped projects">
             <thead>
@@ -39,7 +37,7 @@
                     <a class="btn btn-info btn-sm" href="{{route('gejala.edit', $g->id)}}">
                       <i data-feather="circle"></i> Edit
                     </a>
-                      <form action="{{route('gejala.destroy',$g->id)}}" method="post">
+                      <form action="{{route('gejala.destroy',$g->id)}}" method="post" style="display: inline-block;">
                         @csrf
                           @method('DELETE')
                             <input type="submit" name="" value="Delete" class="btn btn-danger btn-sm">

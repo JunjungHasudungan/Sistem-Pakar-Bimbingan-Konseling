@@ -40,15 +40,6 @@
                         <option value="KG25" @if($gejala->kodeGejala =="KG25") selected @endif >KG25</option>
                       </select>
                   </div>
-                  <div class="form-group">
-                    <label for="permasalahan_id"><strong> Keterangan Permasalahan ID</strong></label>
-                      <input type="text" name="permasalahan_id" value="{{$gejala->permasalahan_id}}" class="form-control @error('permasalahan_id') is-invalid @enderror"  id="permasalahan_id" >
-                        @error('permasalahan_id')
-                          <div class="invalid-feedback">
-                            {{$message}}
-                          </div>
-                        @enderror
-                         </div>
 		      <div class="form-group {{ $errors->has('namaGejala') ? 'has-error' : '' }}">
             <label for="namaGejala"><strong> Keterangan Gejala</strong></label>
         	   <input type="text" id="namaGejala" name="namaGejala" class="form-control" value="{{$gejala->namaGejala }}" require>

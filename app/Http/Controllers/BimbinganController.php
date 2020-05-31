@@ -48,7 +48,7 @@ class BimbinganController extends Controller
         ]);
 
         $bimbingan = Bimbingan::create($request->all());
-        return redirect()->route('konselling.create');
+        return redirect()->route('konselling.create')->with('status', 'Mulai Konselling');
     }
 
     /**
@@ -84,7 +84,17 @@ class BimbinganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'kodeBimbingan' => 'required',
+            'nim' => 'required|size:7',
+            'namaLengkap' => 'required',
+            'status' => 'required',
+            'jenisKelamin' => 'required'
+        ]);
+
+        $bimbingan = Gejala::find($id);
+        $bimbingan = Bimbingan::create($request->all());
+        return redirect()->route('konselling.create')->with('status', 'Mulai Konselling');
     }
 
     /**

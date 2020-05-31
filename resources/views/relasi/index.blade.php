@@ -9,6 +9,11 @@
           <li class="nav-item d-none d-sm-inline-block">
             <a href="{{route('relasi.create')}}" class="nav-link">Tambah Data</a>
           </li>
+            @if(session('status'))
+              <div class="alert alert-success" role="alert">
+                {{session('status')}}  
+              </div>
+            @endif
         <div class="card-body p-0">
           <table class="table table-striped projects">
               <thead>

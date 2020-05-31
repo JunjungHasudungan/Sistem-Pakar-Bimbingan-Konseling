@@ -109,7 +109,7 @@ class PermasalahanController extends Controller
      */
     public function destroy($id)
     {
-    $id->delete();
-    return redirect()->route('permasalahan.index')->with('status','Data Berhasil di Hapus');
+        Permasalahan::find($id)->delete();
+        return redirect()->route('permasalahan.index')->with('status','Data Berhasil di Hapus');
     }
 }

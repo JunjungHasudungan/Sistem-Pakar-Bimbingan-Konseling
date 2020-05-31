@@ -59,7 +59,8 @@ class GejalaController extends Controller
      */
     public function show($id)
     {
-        //
+        $gejala = Gejala::find($id);
+        return view('gejala.detail', compact('gejala'));
     }
 
     /**
@@ -70,7 +71,8 @@ class GejalaController extends Controller
      */
     public function edit($id)
     {
-        //
+         $gejala = Gejala::find($id);
+        return view('gejala.edit', compact('gejala'));
     }
 
     /**
@@ -82,7 +84,14 @@ class GejalaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'kodeGejala' =>'required',
+            'namaGejala' => 'required'
+        ]);
+
+        $gejala = Gejala::find($id);
+        $gejala->update($request->all());
+        return redirect()->route('gejala.index')->with('status', 'Data Berhasil di Update');
     }
 
     /**
@@ -93,6 +102,7 @@ class GejalaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Gejala::find($id)->delete();
+        return redirect()->route('gejala.index')->with('status','Data Berhasil di Hapus');
     }
 }

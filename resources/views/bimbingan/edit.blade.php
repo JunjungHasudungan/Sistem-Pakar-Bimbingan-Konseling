@@ -7,8 +7,9 @@
         <strong>Tambah Data Bimbingan</strong>
       </div>
       <div class="card-body">
-        <form method="post" action="/bimbingan/store">
+        <form method="post" action="{{route('bimbingan.store')}}">
           @csrf
+            @method('PUT')
             <div class="form-group">
               <label for="exampleFormControlSelect1"><strong>  Kode Bimbingan </strong></label>
                 <select type="text" name="kodeBimbingan" class="form-control" id="exampleFormControlSelect1">
