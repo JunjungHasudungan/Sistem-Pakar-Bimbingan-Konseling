@@ -6,6 +6,9 @@
                 <div class="card-header text-left">
                     <strong>Tambah Data gejala</strong>
                 </div>
+                  @if($errors->all())
+                    @include('layouts.error')
+                  @endif
                 <div class="card-body">
                   <form method="POST" action="{{route('gejala.store')}}">
                     @csrf

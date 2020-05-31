@@ -66,7 +66,7 @@ class relasiController extends Controller
         $relasi->permasalahan_id = $request->permasalahan_id;
         $relasi->gejala_id = $request->gejala_id;
         $relasi->save();
-        return redirect()->route('relasi.index');
+        return redirect()->route('relasi.index')->with('status','Data Permasalahan Berhasil Di Tambah');
         // $relasi->save();
 
         // $result = Relasi::create($request->all());
@@ -91,8 +91,12 @@ class relasiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {       
+        $relasi = new Relasi();
+        $permasalahan = Permasalahan::all();
+        $gejala = Gejala::all();
+        $relasi =Relasi::find($id);
+        return view('relasi.edit', ['gejala' => $gejala, 'relasi' => $relasi, 'permasalahan' => $permasalahan]);
     }
 
     /**

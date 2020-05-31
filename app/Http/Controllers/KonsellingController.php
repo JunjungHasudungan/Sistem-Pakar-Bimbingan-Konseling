@@ -7,6 +7,7 @@ use App\Models\Gejala;
 use App\Models\Relasi;
 use App\Models\Permasalahan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KonsellingController extends Controller
 {
@@ -17,7 +18,7 @@ class KonsellingController extends Controller
      */
     public function index()
     {
-        $konselling = Konselling::all();
+        $konselling =DB::table('konselling')->paginate(5);
         $relasi = Relasi::all();
         $gejala = Gejala::all();
         $permasalahan = Permasalahan::all();
