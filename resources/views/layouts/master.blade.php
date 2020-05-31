@@ -119,6 +119,7 @@
                         @yield('relasiIndex')
                         @yield('relasiCreate')
                         @yield('relasiEdit')
+                        @yield('relasiDetail')
 
                         <!-- Page Solusi -->
                         @yield('solusiIndex')

@@ -1,29 +1,35 @@
 @extends('layouts.master')
 
 @section('konsellingCreate')
-    <form action="{{ route('konsultasi.proses') }}" method="post">
+    <form action="{{ route('konselling.store') }}" method="post">
               {{ csrf_field() }}
 
-              <input type="hidden" name="nama" value="{{ old('nama', session('_old_input')['nama']) }}">
-              <input type="hidden" name="alamat" value="{{ old('alamat', session('_old_input')['alamat']) }}">
-              <input type="hidden" name="pekerjaan" value="{{ old('pekerjaan', session('_old_input')['pekerjaan']) }}">
 
-        <div class="panel-body">
-          <div class="form-group {{ $errors->has('gejala') ? 'has-error' : '' }}">
-            <label class="control-label">Gejala</label>
-
-            @foreach($gejalas as $gejala)
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" name="gejala[]" value="{{ $gejala->id }}">
-                  {{ 'G' . $gejala->id . ' - ' . $gejala->name }}
-                </label>
-              </div>
-            @endforeach
-          </div>
-        </div>
+                    <table class="table">
+                        <thead class="">
+                            <tr>
+                                <th width="30"></th>
+                                <th>
+                                    <h5 class="mt-3">Silahkan Pilih Gejala yang Dirasakan :</h5>
+                                    <p>Tips Memilih Gejala:<br>
+                                        1. Pilihlah Gejala berdasarkan Gejala yang paling sering atau paling terasa pada
+                                        diri Anda. <br>
+                                        2. Pilihlah minimal 3 (Tiga) Gejala untuk mendapatkan hasil yang lebih akurat.
+                                    </p>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody align="left">
+                            @foreach($gejala as $row)
+                            <tr>
+                                <td><input type="checkbox" name="gejala[]" class="flat"  value="{{$row->id}}"></td>
+                                <td>{{$row->namaGejala}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
         <div class="panel-footer">
-          <button type="submit" class="btn btn-success">Next</button>
+          <button type="submit" class="btn btn-success">Check Hasil</button>
         </div>
       </form>
 @stop

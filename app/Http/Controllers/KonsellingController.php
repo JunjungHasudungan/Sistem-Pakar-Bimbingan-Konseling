@@ -31,7 +31,7 @@ class KonsellingController extends Controller
      */
     public function create()
     {
-        $gejala = Permasalahan::find(1)->gejala;
+        $gejala = Gejala::all();
         return view('konselling.create', compact('gejala'));   
     }
 

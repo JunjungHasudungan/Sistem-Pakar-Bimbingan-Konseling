@@ -16,8 +16,8 @@
               <thead>
                   <tr>
                       <th style="width: 1%"> No </th>
-                      <th style="width: 10%">  Nama Gejala  </th>
-                      <th style="width: 10%"> Nama Permasalahan  </th>
+                      <th style="width: 10%">  ID Gejala  </th>
+                      <th style="width: 10%"> ID Permasalahan  </th>
                       <th style="width: 25%"> Aksi </th>
                   </tr>
               </thead>
@@ -28,7 +28,7 @@
                       <td>  {{$r->gejala_id}} </td>
                       <td> {{$r->permasalahan_id}} </td>
                       <td class="project-actions text-right">
-{{--                           <a class="btn btn-primary btn-sm" href="{{route('relasi.show', $r->id)}}">
+                          <a class="btn btn-primary btn-sm" href="{{route('relasi.show', $r->id)}}">
                               <i class="fas fa-folder">
                               </i>
                               View
@@ -42,7 +42,7 @@
                               <i class="fas fa-trash">
                               </i>
                               Delete
-                          </a> --}}
+                          </a>
                       </td>
                   </tr>
                   @endforeach

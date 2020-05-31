@@ -30,18 +30,7 @@ class GejalaController extends Controller
      */
     public function create()
     {
-        $gejala = new Gejala;
-        $gejala = Gejala::where('namaGejala', title_case($request->input('namaGejala')))
-                ->first();
-        
-        $this->validate($request, [
-        'kodePermasalahan' => 'required',
-        'namaGejala' => 'required|min:10|max:200',
-            ]);
-
-        $gejala->namaGejala = title_case($request->input('namaGejala'));
-        $gejala->save();
-        // $permasalahan = Permasalahan::orderBy('keteranganPermasalahan')->get();
+        $gejala = Gejala::all();
         return view('gejala.create',compact('gejala'));
     }
 

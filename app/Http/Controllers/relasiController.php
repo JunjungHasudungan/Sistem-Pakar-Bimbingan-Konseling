@@ -28,10 +28,9 @@ class relasiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        $relasi = new Relasi();
+    {   $relasi = new Relasi();
         $permasalahan = Permasalahan::all();
-        $gejala = Gejala::all()->pluck('namaGejala', 'id');
+        $gejala = Gejala::all();
         return view('Relasi.create',['gejala' => $gejala, 'relasi' => $relasi, 'permasalahan' => $permasalahan]);
     }
 
@@ -42,42 +41,35 @@ class relasiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        // $relasiModel = new Relasi();
         $request->validate([
-            'permasalahan' => 'required',
-            'gejala' => 'required'
+            'permasalahan_id' => 'required',
+            'gejala_id' => 'required'
         ]);
 
-        $checkRelasi = Relasi::where([
+        $check = Relasi::where([
             'permasalahan_id' => $request['permasalahan'],
             'gejala_id' => $request['gejala'],
-        ])->first();
+            ])->first();
 
-        if ($checkRelasi !== null) {
-            return \Response::json(array("errors" => ['permasalahan' => 'The Penyakit and Gejala has already been taken.
-            ', 'gejala' => 'The Penyakit and Gejala has already been taken.']), 422);
+        if ($check !== null) {
+            return \Response::json(array("errors" => ['permasalahan' => 'The Permasalahan and Gejala has already been taken.
+            ', 'gejala' => 'The Permasalahan and Gejala has already been taken.']), 422);
         }
 
-        $relasi = [
-            'permasalahan_id' => $request['permasalahan'],
-            'gejala_id' => $request['gejala'],
-        ];
-            $arr = array();
-              foreach ($relasi as $key => $value) {
-                    if(is_array($value)) {
-                        foreach($value as $val){
-                            $arr[] = $val;
-                        }
-                    } else {
-                        $arr[] = $value;
-                    }
-                }
-                 $result = implode(" , ", $arr);
-                dd($result);
-        // $relasiHasil = implode(',', $checkRelasi);
-        // dd($relasiHasil);
-        //  Relasi::create($relasi);
-        // return redirect()->route('relasi.index');
+        // $relasi = [
+        //     'permasalahan_id' => $request['permasalahan'],
+        //     'gejala_id' => $request['gejala'],
+        // ];
+        $relasi = new Relasi();
+        $relasi->permasalahan_id = $request->permasalahan_id;
+        $relasi->gejala_id = $request->gejala_id;
+        $relasi->save();
+        return redirect()->route('relasi.index');
+        // $relasi->save();
+
+        // $result = Relasi::create($request->all());
     }
 
     /**
@@ -88,7 +80,8 @@ class relasiController extends Controller
      */
     public function show($id)
     {
-        //
+        $relasi = Relasi::find($id);
+        return view('relasi.detail', compact('relasi'));
     }
 
     /**
