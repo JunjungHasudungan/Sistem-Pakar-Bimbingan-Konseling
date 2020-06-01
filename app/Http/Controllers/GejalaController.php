@@ -48,7 +48,7 @@ class GejalaController extends Controller
         ]);
  
        $gejala = Gejala::create($request->all());
-       return redirect()->route('gejala.index')->with('status', 'Dat Gejala Berhasil di Tambah');
+       return redirect()->route('gejala.index')->with('status', 'Data Gejala Berhasil di Tambah');
     }
 
     /**

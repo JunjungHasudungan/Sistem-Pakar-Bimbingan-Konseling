@@ -30,10 +30,16 @@ class KonsellingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    private function selectGejala($pasien_id) {
         $gejala = Gejala::all();
-        return view('konselling.create', compact('gejala'));   
+        return view('konselling.create', compact('gejala', 'pasien_id'));
+    }
+
+    public function create()
+    {   
+        $bimbingan_id = DB::table('tmpGejala')->get();
+        $gejala = Gejala::all();
+        return view('konselling.create', compact('gejala', 'bimbingan_id'));   
     }
 
     /**

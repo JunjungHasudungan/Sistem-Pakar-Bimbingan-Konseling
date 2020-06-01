@@ -19,8 +19,8 @@
               <thead>
                   <tr>
                       <th style="width: 1%"> No </th>
-                      <th style="width: 10%">  ID Gejala  </th>
-                      <th style="width: 10%"> ID Permasalahan  </th>
+                      <th style="width: 10%"> Relasi ID Gejala  </th>
+                      <th style="width: 10%"> Relasi ID Permasalahan  </th>
                       <th style="width: 25%"> Aksi </th>
                   </tr>
               </thead>

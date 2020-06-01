@@ -11,10 +11,10 @@
                 </div>
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>ID Gejala</b> <a class="float-right">{{ $relasi->gejala_id }}</a>
+                    <b> Relasi ID Gejala</b> <a class="float-right">{{ $relasi->gejala_id }}</a>
                   </li>
                   <li class="list-group-item">
-                    <b>ID Permasalahan</b> <a class="float-right">{{ $relasi->permasalahan_id }}</a>
+                    <b> Relasi ID Permasalahan</b> <a class="float-right">{{ $relasi->permasalahan_id }}</a>
                   </li>
                   <li class="list-group-item">
                     <b>Created at :</b> <a class="float-right">{{$relasi->created_at->format(' H:i d-m-y ')}}</a>

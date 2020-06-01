@@ -15,7 +15,7 @@
         <div class="form-group">
           <label class="control-label">Nama permasalahan</label>
             <select id="permasalahan" name="permasalahan_id" class="form-control">
-              <option value=""></option>
+              <option value="">--- Pilih Permasalahan---</option>
                 @foreach($permasalahan as $p)
                   <option value="{{$p->id}}" @if ($p->id == $relasi->permasalahan_id) selected="selected" @endif>
                     {{$p->keteranganPermasalahan}}
@@ -26,7 +26,7 @@
         <div class="form-group">
           <label class="control-label">Nama gejala</label>
             <select id="gejala" name="gejala_id" class="form-control">
-              <option value=""></option>
+              <option value="">--- Pilih Gejala Permasalahan---</option>
                 @foreach($gejala as $g)
                   <option value="{{$g->id}}" @if ($g->id == $relasi->gejala_id) selected="selected" @endif>
                      {{$g->namaGejala}}

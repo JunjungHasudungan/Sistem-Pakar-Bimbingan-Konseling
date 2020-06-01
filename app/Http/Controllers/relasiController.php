@@ -66,7 +66,7 @@ class relasiController extends Controller
         $relasi->permasalahan_id = $request->permasalahan_id;
         $relasi->gejala_id = $request->gejala_id;
         $relasi->save();
-        return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil Di Tambah');
+        return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');
         // $relasi->save();
 
         // $result = Relasi::create($request->all());
