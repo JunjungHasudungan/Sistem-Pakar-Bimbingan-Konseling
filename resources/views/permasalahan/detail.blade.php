@@ -11,10 +11,13 @@
                 </div>
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Kode Gejala</b> <a class="float-right">{{ $permasalahan->kodePermasalahan }}</a>
+                    <b>Kode Permasalahan</b> <a class="float-right">{{ $permasalahan->kodePermasalahan }}</a>
                   </li>
                   <li class="list-group-item">
                     <b>Keterangan permasalahan</b> <a class="float-right">{{ $permasalahan->keteranganPermasalahan }}</a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>Keterangan Solusi</b> <a class="float-right">{{ $permasalahan->solusi }}</a>
                   </li>
                   <li class="list-group-item">
                     <b>Created at :</b> <a class="float-right">{{$permasalahan->created_at->format(' H:i d-m-y ')}}</a>

@@ -17,7 +17,7 @@ class CreateTmpKonsellingTable extends Migration
             $table->unsignedInteger('bimbingan_id')->nullable();
             $table->unsignedInteger('permasalahan_id')->nullable();
             $table->unsignedInteger('gejala')->nullable();
-            $table->unsignedInteger('gejala_terpenuhi')->nullable();
+            $table->unsignedInteger('gejalaTerpenuhi')->nullable();
             $table->foreign('bimbingan_id')->references('id')->on('bimbingan')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('permasalahan_id')->references('id')->on('permasalahan')->onDelete('cascade')->onUpdate('cascade');
         });

@@ -18,10 +18,11 @@ class Permasalahan extends Model
     	return $this->belongsToMany(Gejala::class, 'basepengetahuan')->withTimestamps();;
     }
 
-/*    public function attachGejala($gejala_id) {
+    public function attachGejala($gejala_id) {
         $gejala = Gejala::find($gejala_id);
         return $this->gejala()->attach($gejala);
-    }*/
+    }
+    
     public function solusi()
     {
         return $this->hasMany(Solusi::class);

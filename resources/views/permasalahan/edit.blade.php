@@ -46,6 +46,11 @@
             <label for="keteranganPermasalahan"><strong> Keterangan Permasalahan</strong></label>
               <input type="text" name="keteranganPermasalahan" value="{{ $permasalahan->keteranganPermasalahan }}" class="form-control "  id="keteranganPermasalahan" >
           <div class="form-group">
+            <label>Solusi Permasalahan :</label>
+              <textarea name="solusi" class="form-control" rows="4"  >{{ $permasalahan->solusi }}
+              </textarea>
+          </div>
+          <div class="form-group">
               <input type="submit" class="btn btn-success" value="Simpan">
           </div>
         </form>
