@@ -33,8 +33,3 @@ class CreateSolusiTable extends Migration
     }
 }
 
-/*
-            $table->id();
-            $table->char('kodePenyakit');
-            $table->char('kodeGejala');
-*/

@@ -44,8 +44,9 @@ class relasiController extends Controller
     {   
         // $relasiModel = new Relasi();
         $request->validate([
+            'kodeRelasi' => 'required',
             'permasalahan_id' => 'required',
-            'gejala_id' => 'required'
+            'gejala_id' => 'required',
         ]);
 
         $check = Relasi::where([
@@ -63,6 +64,7 @@ class relasiController extends Controller
         //     'gejala_id' => $request['gejala'],
         // ];
         $relasi = new Relasi();
+        $relasi->kodeRelasi = $request->kodeRelasi;
         $relasi->permasalahan_id = $request->permasalahan_id;
         $relasi->gejala_id = $request->gejala_id;
         $relasi->save();

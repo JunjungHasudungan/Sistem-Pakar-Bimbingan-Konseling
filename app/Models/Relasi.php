@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Relasi extends Model
 {
     protected $table = 'gejalaPermasalahan';
-    protected $fillable = [ 'permasalahan_id', 'gejala_id'];
+    protected $fillable = [ 'permasalahan_id', 'gejala_id', 'kodeRelasi'];
     protected $guarded = [];
 
     public function permasalahan()
