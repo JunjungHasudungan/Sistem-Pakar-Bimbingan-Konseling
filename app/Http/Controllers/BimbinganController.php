@@ -92,8 +92,8 @@ class BimbinganController extends Controller
             'jenisKelamin' => 'required'
         ]);
 
-        $bimbingan = Gejala::find($id);
-        $bimbingan = Bimbingan::create($request->all());
+        $bimbingan = Bimbingan::find($id);
+        $bimbingan->update($request->all());
         return redirect()->route('konselling.create')->with('status', 'Mulai Konselling');
     }
 

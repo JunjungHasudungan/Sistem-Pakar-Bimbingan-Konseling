@@ -39,16 +39,18 @@
                           <a class="btn btn-info btn-sm" href="{{route('relasi.edit', $r->id)}}">
                             <i class="fas fa-pencil-alt"></i>Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash"></i>Delete
-                          </a>
+                          <form action="{{route('relasi.destroy',$r->id)}}" method="post" style="display: inline-block;">
+                        @csrf
+                          @method('DELETE')
+                            <input type="submit" name="" value="Delete" class="btn btn-danger btn-sm">
+                      </form>
                       </td>
                   </tr>
                   @endforeach
               </tbody>
           </table>
         </div>
-      <div class="pagination " style="margin:20px 0">
+      <div class="pagination justify-content-center" style="margin:20px 0">
         {{$relasi->links()}}
       </div>
     </div>

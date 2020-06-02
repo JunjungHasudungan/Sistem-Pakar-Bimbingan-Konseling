@@ -52,7 +52,7 @@
               </tbody>
           </table>
         </div>
-      <div class="pagination " style="margin:20px 0">
+      <div class="pagination justify-content-center" style="margin:20px 0">
         {{$bimbingan->links()}}
       </div>
     </div>

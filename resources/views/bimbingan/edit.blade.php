@@ -7,7 +7,7 @@
         <strong>Tambah Data Bimbingan</strong>
       </div>
       <div class="card-body">
-        <form method="post" action="{{route('bimbingan.store')}}">
+        <form method="POST" action="{{route('bimbingan.update',[$bimbingan->id])}}">
           @csrf
             @method('PUT')
             <div class="form-group">

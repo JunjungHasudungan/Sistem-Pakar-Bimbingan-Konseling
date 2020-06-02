@@ -31,7 +31,7 @@ class relasiController extends Controller
     {   $relasi = new Relasi();
         $permasalahan = Permasalahan::all();
         $gejala = Gejala::all();
-        return view('Relasi.create',['gejala' => $gejala, 'relasi' => $relasi, 'permasalahan' => $permasalahan]);
+        return view('Relasi.create',compact('gejala', 'relasi', 'permasalahan'));
     }
 
     /**
@@ -98,7 +98,7 @@ class relasiController extends Controller
         $permasalahan = Permasalahan::all();
         $gejala = Gejala::all();
         $relasi =Relasi::find($id);
-        return view('relasi.edit', ['gejala' => $gejala, 'relasi' => $relasi, 'permasalahan' => $permasalahan]);
+        return view('relasi.edit',compact('gejala', 'relasi', 'permasalahan'));
     }
 
     /**
@@ -121,6 +121,7 @@ class relasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Relasi::find($id)->delete();
+        return redirect()->route('relasi.index')->with('status','Data Berhasil di Hapus');
     }
 }

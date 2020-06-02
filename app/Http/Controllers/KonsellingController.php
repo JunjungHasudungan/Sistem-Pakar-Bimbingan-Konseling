@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Konselling;
+use App\Models\Permasalahan;
 use App\Models\Bimbingan;
 use App\Models\Gejala;
 use App\Models\Relasi;
@@ -56,9 +57,9 @@ class KonsellingController extends Controller
         // Menggambil nilai dari form gejala
         $data = $request->all();
         $gejala = $data['gejala'];
-        // dd($gejala);    
+        dd($gejala);    
 
-        $relasi = Relasi::select('permasalahan_id')
+/*        $relasi = Relasi::select('permasalahan_id')
             ->whereIn('gejala_id', $gejala)
             ->groupBy('permasalahan_id')
             ->get();
@@ -88,7 +89,7 @@ class KonsellingController extends Controller
                 }
                
             }
-        }
+        }*/
     }
 
     /**

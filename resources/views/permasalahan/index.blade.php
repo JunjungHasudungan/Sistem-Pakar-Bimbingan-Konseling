@@ -48,7 +48,7 @@
                 </tbody>
           </table>
         </div>
-      <div class="pagination pagination-sm m-0 float-left " style="margin:20px 0">
+      <div class="pagination justify-content-center " style="margin:20px 0">
         {{$permasalahan->links()}}
       </div>
     </div>

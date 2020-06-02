@@ -40,7 +40,7 @@
                   @endforeach
           </table>
         </div>
-        <div class="pagination " style="margin:20px 0">
+        <div class="pagination justify-content-center" style="margin:20px 0">
           {{$konselling->links()}}
       </div>
     </div>

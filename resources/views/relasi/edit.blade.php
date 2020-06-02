@@ -44,20 +44,20 @@
               </select>
             </div>
         <div class="form-group">
-          <label class="control-label">Nama permasalahan</label>
+          <label class="control-label">ID Relasi permasalahan</label>
             <select id="permasalahan" name="permasalahan_id" class="form-control">
               <option value=""></option>
                 @foreach($permasalahan as $p)
-                  <option value="{{$p->id}}" @if ($p->id == $relasi->permasalahan_id) selected="selected" @endif></option>
+                  <option value="{{$p->id}}" @if ($p->id == $relasi->permasalahan_id) selected="selected" @endif> {{ $relasi->permasalahan_id }} </option>
                 @endforeach
             </select>
         </div>
         <div class="form-group">
-          <label class="control-label">Nama gejala</label>
+          <label class="control-label">ID Relasi gejala</label>
             <select id="gejala" name="gejala_id" class="form-control">
               <option value=""></option>
                 @foreach($gejala as $g)
-                  <option value="{{$g->id}}" @if ($g->id == $relasi->gejala_id) selected="selected" @endif></option>
+                  <option value="{{$g->id}}" @if ($g->id == $relasi->gejala_id) selected="selected" @endif>{{ $relasi->gejala_id }}</option>
                 @endforeach
             </select>
         </div>
