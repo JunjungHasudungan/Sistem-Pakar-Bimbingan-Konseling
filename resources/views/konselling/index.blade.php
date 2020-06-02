@@ -22,7 +22,7 @@
                 @foreach($konselling as $k)
               <tbody>
                   <tr>
-                      <td> {{$loop->iteration}} </td>
+                      <td> {{$k->id}} </td>
                       <td>  {{$k->gejala_id}} </td>
                       <td> {{$k->permasalahan_id}} </td>
                       <td class="project-actions text-right">

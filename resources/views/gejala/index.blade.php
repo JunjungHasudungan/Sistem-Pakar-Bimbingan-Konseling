@@ -27,7 +27,7 @@
             <tbody>
               @foreach($gejala as $g)
                 <tr>
-                  <td> {{ $loop->iteration }} </td>
+                  <td> {{ $g->id }} </td>
                   <td> {{ $g->kodeGejala }} </td>                      
                   <td> {{ $g->namaGejala }} </td>
                   <td class="project-actions text-right">
