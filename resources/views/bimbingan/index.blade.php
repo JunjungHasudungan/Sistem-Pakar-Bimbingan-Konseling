@@ -31,7 +31,7 @@
               <tbody>
                 @foreach($bimbingan as $b)
                   <tr>
-                    <td> {{ $b->id }} </td>
+                    <td> {{ $loop->iteration }} </td>
                     <td> {{ $b->kodeBimbingan }} </td>
                     <td> {{ $b->namaLengkap }} </td>
                     <td> {{ $b->nim }}</td>

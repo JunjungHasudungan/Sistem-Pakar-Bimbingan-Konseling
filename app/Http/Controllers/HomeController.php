@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bimbingan;
+use App\Models\Permasalahan;
+use App\Models\Gejala;
+use App\Models\Relasi;
+use App\Models\Konselling;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +17,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -22,7 +28,12 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {    
+        $bimbingan = Bimbingan::all();
+        $permasalahan = Permasalahan::all();
+        $relasi = Relasi::all();
+        $gejala = Gejala::all();
+        $konselling = Konselling::all();
+        return view('home',compact('bimbingan', 'gejala', 'permasalahan', 'relasi', 'konselling'));
     }
 }

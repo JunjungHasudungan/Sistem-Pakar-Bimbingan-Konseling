@@ -27,7 +27,7 @@
               @foreach($permasalahan as $p)
                 <tbody>
                     <tr>
-                        <td> {{$p->id}} </td>
+                        <td> {{$loop->iteration}} </td>
                         <td> {{$p->kodePermasalahan}} </td>
                         <td> {{$p->keteranganPermasalahan}} </td>
                         <td class="project-actions text-right">

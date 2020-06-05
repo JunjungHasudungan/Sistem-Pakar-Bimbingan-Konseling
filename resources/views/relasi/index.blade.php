@@ -28,7 +28,7 @@
                 @foreach($relasi as $r)
               <tbody>
                   <tr>
-                      <td> {{$r->id}} </td>
+                      <td> {{$loop->iteration}} </td>
                       <td> {{$r->kodeRelasi}} </td>
                       <td>  {{$r->gejala_id}} </td>
                       <td> {{$r->permasalahan_id}} </td>
