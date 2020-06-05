@@ -34,6 +34,6 @@ class HomeController extends Controller
         $relasi = Relasi::all();
         $gejala = Gejala::all();
         $konselling = Konselling::all();
-        return view('home',compact('bimbingan', 'gejala', 'permasalahan', 'relasi', 'konselling'));
+        return view('admin.home',compact('bimbingan', 'gejala', 'permasalahan', 'relasi', 'konselling'));
     }
 }
