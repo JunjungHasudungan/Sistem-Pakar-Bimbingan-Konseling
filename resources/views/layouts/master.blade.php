@@ -74,7 +74,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('gejala.index') }}">
-                                    <span data-feather="loader"></span> Gejala
+                                    <span data-feather="heart"></span> Gejala
                                 </a>
                             </li>
                             <li class="nav-item">

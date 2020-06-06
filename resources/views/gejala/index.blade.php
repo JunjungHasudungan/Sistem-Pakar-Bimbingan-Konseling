@@ -35,7 +35,7 @@
                       View
                     </a>
                     <a class="btn btn-info btn-sm" href="{{route('gejala.edit', $g->id)}}">
-                      <i data-feather="circle"></i> Edit
+                      <i data-feather="heart"></i> Edit
                     </a>
                       <form action="{{route('gejala.destroy',$g->id)}}" method="post" style="display: inline-block;">
                         @csrf

@@ -23,7 +23,7 @@
                     <div class="col-md-12">
                         @foreach ($gejala as $gejala)
                             <div class="checkbox">
-                                <label><input class="check" type="checkbox" name="gejala[]" value="{{ $gejala->id }}">  {{ $gejala->namaGejala }} </label>
+                                <label><input class="flat" type="checkbox" name="gejala[]" value="{{ $gejala->id }}">  {{ $gejala->namaGejala }} </label>
                             </div>
                         @endforeach
                     </div>

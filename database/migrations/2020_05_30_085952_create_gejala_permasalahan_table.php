@@ -18,6 +18,9 @@ class CreateGejalaPermasalahanTable extends Migration
             $table->char('kodeRelasi');
             $table->integer('permasalahan_id')->unsigned();
             $table->integer('gejala_id')->unsigned();
+            $table->Double('nilai_mb');
+            $table->Double('nilai_md');
+            $table->Double('nilai_cf');
             $table->timestamps();
 
             $table->foreign('permasalahan_id')

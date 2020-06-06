@@ -47,6 +47,8 @@ class relasiController extends Controller
             'kodeRelasi' => 'required',
             'permasalahan_id' => 'required',
             'gejala_id' => 'required',
+            'nilai_mb' => 'required|numeric|between:0,1',
+            'nilai_md' => 'required|numeric|between:0,1',
         ]);
 
         $check = Relasi::where([
@@ -67,6 +69,9 @@ class relasiController extends Controller
         $relasi->kodeRelasi = $request->kodeRelasi;
         $relasi->permasalahan_id = $request->permasalahan_id;
         $relasi->gejala_id = $request->gejala_id;
+        $relasi->nilai_mb = $request->nilai_mb;
+        $relasi->nilai_md = $request->nilai_md;
+        $relasi->nilai_cf = $request->nilai_cf['nilai_mb'] - $request->nilai_cf['nilai_md'];
         $relasi->save();
         return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');
         // $relasi->save();
