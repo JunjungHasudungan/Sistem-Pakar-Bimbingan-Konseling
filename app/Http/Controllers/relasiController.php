@@ -44,15 +44,15 @@ class relasiController extends Controller
     {   
         // $relasiModel = new Relasi();
         $request->validate([
-            'kodeRelasi' => 'required',
-            'permasalahan_id' => 'required',
+            // 'kodeRelasi' => 'required',
+            // 'permasalahan_id' => 'required',
             'gejala_id' => 'required',
-            'nilai_mb' => 'required|numeric|between:0,1',
-            'nilai_md' => 'required|numeric|between:0,1',
+            // 'nilai_mb' => 'required|numeric|between:0,1',
+            // 'nilai_md' => 'required|numeric|between:0,1',
         ]);
 
         $check = Relasi::where([
-            'permasalahan_id' => $request['permasalahan'],
+            // 'permasalahan_id' => $request['permasalahan'],
             'gejala_id' => $request['gejala'],
             ])->first();
 
@@ -66,14 +66,17 @@ class relasiController extends Controller
         //     'gejala_id' => $request['gejala'],
         // ];
         $relasi = new Relasi();
-        $relasi->kodeRelasi = $request->kodeRelasi;
-        $relasi->permasalahan_id = $request->permasalahan_id;
+        // $relasi->kodeRelasi = $request->kodeRelasi;
+        // $relasi->permasalahan_id = $request->permasalahan_id;
         $relasi->gejala_id = $request->gejala_id;
-        $relasi->nilai_mb = $request->nilai_mb;
-        $relasi->nilai_md = $request->nilai_md;
-        $relasi->nilai_cf = $request->nilai_cf['nilai_mb'] - $request->nilai_cf['nilai_md'];
-        $relasi->save();
-        return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');
+        // $relasi->nilai_mb = $request->nilai_mb;
+        // $relasi->nilai_md = $request->nilai_md;
+        // $relasi->nilai_cf = $request->nilai_cf['nilai_mb'] - $request->nilai_cf['nilai_md'];
+        $answerimplode = implode(" , ", $request->gejala_id);
+        dd($answerimplode);       
+
+        // $relasi->save();
+        // return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');
         // $relasi->save();
 
         // $result = Relasi::create($request->all());

@@ -15,18 +15,18 @@ class CreateGejalaPermasalahanTable extends Migration
     {
         Schema::create('gejalaPermasalahan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('kodeRelasi');
-            $table->integer('permasalahan_id')->unsigned();
+            // $table->char('kodeRelasi');
+            // $table->integer('permasalahan_id')->unsigned();
             $table->integer('gejala_id')->unsigned();
-            $table->Double('nilai_mb');
-            $table->Double('nilai_md');
-            $table->Double('nilai_cf');
+            // $table->Double('nilai_mb');
+            // $table->Double('nilai_md');
+            // $table->Double('nilai_cf');
             $table->timestamps();
 
-            $table->foreign('permasalahan_id')
+/*            $table->foreign('permasalahan_id')
                   ->references('id')
                   ->on('permasalahan')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade');*/
             
             $table->foreign('gejala_id')
                   ->references('id')
