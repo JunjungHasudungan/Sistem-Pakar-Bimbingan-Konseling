@@ -42,44 +42,23 @@ class relasiController extends Controller
      */
     public function store(Request $request)
     {   
-        // $relasiModel = new Relasi();
+        $inputValue = $request->all();
+
         $request->validate([
-            // 'kodeRelasi' => 'required',
-            // 'permasalahan_id' => 'required',
             'gejala_id' => 'required',
-            // 'nilai_mb' => 'required|numeric|between:0,1',
-            // 'nilai_md' => 'required|numeric|between:0,1',
         ]);
 
         $check = Relasi::where([
-            // 'permasalahan_id' => $request['permasalahan'],
-            'gejala_id' => $request['gejala'],
+        'gejala_id' => $request['gejala_id'],
             ])->first();
 
-        if ($check !== null) {
-            return \Response::json(array("errors" => ['permasalahan' => 'The Permasalahan and Gejala has already been taken.
-            ', 'gejala' => 'The Permasalahan and Gejala has already been taken.']), 422);
-        }
+        $arrayToString = implode(" , ", $request->input('gejala_id'));        
+        $inputValue['gejala_id'] = $arrayToString;
+        $relasi = Relasi::create($inputValue);
 
-        // $relasi = [
-        //     'permasalahan_id' => $request['permasalahan'],
-        //     'gejala_id' => $request['gejala'],
-        // ];
-        $relasi = new Relasi();
-        // $relasi->kodeRelasi = $request->kodeRelasi;
-        // $relasi->permasalahan_id = $request->permasalahan_id;
-        $relasi->gejala_id = $request->gejala_id;
-        // $relasi->nilai_mb = $request->nilai_mb;
-        // $relasi->nilai_md = $request->nilai_md;
-        // $relasi->nilai_cf = $request->nilai_cf['nilai_mb'] - $request->nilai_cf['nilai_md'];
-        $answerimplode = implode(" , ", $request->gejala_id);
-        dd($answerimplode);       
 
-        // $relasi->save();
-        // return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');
-        // $relasi->save();
-
-        // $result = Relasi::create($request->all());
+        return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');
+        $result = Relasi::create($request->all());
     }
 
     /**
