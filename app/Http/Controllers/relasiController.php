@@ -42,23 +42,29 @@ class relasiController extends Controller
      */
     public function store(Request $request)
     {   
-        $inputValue = $request->all();
+        $relasi = new Relasi();
 
-        $request->validate([
+        $this->validate($request, [
+            'kodeRelasi' => 'required',
+            'permasalahan_id' => 'required',
             'gejala_id' => 'required',
+            'nilai_mb' => 'required|numeric|between:0,1',
+            'nilai_md' => 'required|numeric|between:0,1',
         ]);
 
-        $check = Relasi::where([
-        'gejala_id' => $request['gejala_id'],
-            ])->first();
+        $relasi = [
+            'kodeRelasi' => $request['kodeRelasi'],            
+            'permasalahan_id' => $request['permasalahan_id'],
+            'gejala_id' => $request['gejala_id'],
+            'nilai_mb' => $request['nilai_mb'],
+            'nilai_md' => $request['nilai_md'],
+        ];
 
-        $arrayToString = implode(" , ", $request->input('gejala_id'));        
-        $inputValue['gejala_id'] = $arrayToString;
-        $relasi = Relasi::create($inputValue);
+        $nilai_cf = $relasi['nilai_mb'] - $relasi['nilai_md'];
+        $relasi['nilai_cf'] = $nilai_cf;
 
-
+        $relasi =  Relasi::create($relasi);
         return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');
-        $result = Relasi::create($request->all());
     }
 
     /**

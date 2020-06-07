@@ -17,12 +17,6 @@
                   <b>Keterangan Gejala</b> <a class="float-right">{{ $gejala->namaGejala }}</a>
                 </li>
                 <li class="list-group-item">
-                  <b>Keterangan Permasalahan ID</b> <a class="float-right">{{ $gejala->permasalahan_id }}</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Keterangan Jawaban</b> <a class="float-right">{{ $gejala->jawaban }}</a>
-                </li>
-                <li class="list-group-item">
                   <b>Created at :</b> <a class="float-right">{{$gejala->created_at->format(' H:i d-m-y ')}}</a>
                 </li>
                 <li class="list-group-item">

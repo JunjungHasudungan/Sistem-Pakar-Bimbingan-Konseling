@@ -45,16 +45,9 @@ class PermasalahanController extends Controller
             'keteranganPermasalahan' => 'required',
             'solusi' => 'required'
         ]);
-         $permasalahan->kodePermasalahan = $request->kodePermasalahan;
-         $permasalahan->keteranganPermasalahan = $request->keteranganPermasalahan;
-         $permasalahan->solusi = $request->solusi;
-         $permasalahan->save();
 
-/*        foreach ($request->gejala as $gejala_id) {
-            $permasalahan->attachGejala($gejala_id);
-        }*/
-         $permasalahan = Permasalahan::create($request->all());
-         return redirect()->route('permasalahan.index')->with('status','Data Permasalahan Berhasil Di Tambah');      
+        $permasalahan = Permasalahan::create($request->all());
+        return redirect()->route('permasalahan.index')->with('status','Data Permasalahan Berhasil Di Tambah');      
     }
 
 
