@@ -65,12 +65,11 @@
             </select>
         </div>
         <div class="form-group">
-          <label for="nilai_mb">Masukkan Nilai </label>
-            <input class="form-control {{ $errors->has('nilai_mb') ? 'is-invalid' : '' }}" placeholder='Masukkan Nilai' type="number" name="nilai_mb" id="nilai_mb" value="{{ old('nilai_mb', '') }}" step="1">
-        </div>
-        <div class="form-group">
-          <label for="nilai_md">Masukkan Nilai </label>
-            <input class="form-control {{ $errors->has('nilai_md') ? 'is-invalid' : '' }}" placeholder='Masukkan Nilai' type="number" name="nilai_md" id="nilai_md" value="{{ old('nilai_md', '') }}" step="1">
+          <label for="exampleFormControlSelect1"><strong>Status</strong></label>
+            <select type="text" name="status" class="form-control" id="exampleFormControlSelect1">
+              <option value="Ya" >Ya</option>
+              <option value="Tidak" >Tidak</option>
+            </select>
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-success" value="Simpan">

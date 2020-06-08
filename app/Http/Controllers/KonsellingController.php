@@ -55,6 +55,7 @@ class KonsellingController extends Controller
         ]);
         
         // Menggambil nilai dari form gejala
+        $permasalahan = Permasalahan::all();
         $data = $request->all();
         $gejala = $data['gejala'];
         // dd($gejala);    
@@ -90,57 +91,7 @@ class KonsellingController extends Controller
                
             }
         }
- foreach ($nilai_cf as $key => $value) {
-            // dd($value);
-            // var_dump(count($value));
-            foreach ($value as $k => $v) {
-                // var_dump(count($v));
-                // dd($v);
-                if(count($v) < 1){
-                    $nilai_akhir_cf[$key] = $v1['nilai_cf'];
-                } else {
-                    foreach ($v as $k1 => $v1) {
-                        // dd($v1['nilai_cf']);
-                        $nilai_akhir_cf[$key][$k] = $v1['nilai_cf'];
-                        // dd($nilai_akhir_cf);
-                    }
-                }
-            } //untuk melakuakn perulangan dari nilai cf pada permasalahan
-        }
- foreach ($nilai_akhir_cf as $key => $value) {
-            if(count($nilai_akhir_cf[$key]) > 1){
-                for($i = 0; $i < count($value) - 1; $i++) {
-                    // echo 'permasalahan '.$key.'<br>';
-                    $cf[$key] = $value[$i] + ($value[$i+1] * (1 - $value[$i]));
-                    // echo $value[$i].' + '.$value[$i+1].' x '.(1 - $value[$i]).'<br>';
-                    $value[$i+1] = $cf[$key];
-                    // echo $cf[$key].'<br>';
-                    $cf[$key] *= 100;
-                }
-            } else {
-                $cf[$key] = $nilai_akhir_cf[$key][0] * 100;
-            }
-        }
-    foreach($cf as $key => $value) {
-             // echo $value.'<br>';
-            $permasalahan = Permasalahan::find($key);
-            $hasil_akhir[$key][0] = $permasalahan['keteranganPermasalahan'];
-            $hasil_akhir[$key][1] = $value;
-            $hasil_akhir[$key][2] = $permasalahan['solusi'];
-         }
-        //  dd($hasil_akhir);
-         usort($hasil_akhir, function($a, $b) {
-            return $b[1] <=> $a[1];
-        });
-
-         foreach ($gejala as $value) {
-             $g = Gejala::find($value);
-             $nama_gejala[]['namaGejala'] = $g['namaGejala'];
-         }
-         
-        //  dd($hasil_akhir);
-        //  dd($nama_gejala);
-         return redirect('bimbingan.index', compact('hasil_akhir','nama_gejala'));
+         return view('konselling.index');
     }
 
     /**

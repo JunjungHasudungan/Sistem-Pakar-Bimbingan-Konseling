@@ -48,20 +48,15 @@ class relasiController extends Controller
             'kodeRelasi' => 'required',
             'permasalahan_id' => 'required',
             'gejala_id' => 'required',
-            'nilai_mb' => 'required|numeric|between:0,1',
-            'nilai_md' => 'required|numeric|between:0,1',
+            'status' => 'required'
         ]);
 
         $relasi = [
             'kodeRelasi' => $request['kodeRelasi'],            
             'permasalahan_id' => $request['permasalahan_id'],
             'gejala_id' => $request['gejala_id'],
-            'nilai_mb' => $request['nilai_mb'],
-            'nilai_md' => $request['nilai_md'],
+            'status' => $request['status'],            
         ];
-
-        $nilai_cf = $relasi['nilai_mb'] - $relasi['nilai_md'];
-        $relasi['nilai_cf'] = $nilai_cf;
 
         $relasi =  Relasi::create($relasi);
         return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');

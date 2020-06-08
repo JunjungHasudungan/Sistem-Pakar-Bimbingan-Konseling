@@ -14,6 +14,9 @@
                     <b> Kode Relasi</b> <a class="float-right">{{ $relasi->kodeRelasi }}</a>
                   </li>
                   <li class="list-group-item">
+                    <b> Status</b> <a class="float-right">{{ $relasi->status }}</a>
+                  </li>
+                  <li class="list-group-item">
                     <b> Relasi ID Gejala</b> <a class="float-right">{{ $relasi->gejala_id }}</a>
                   </li>
                   <li class="list-group-item">

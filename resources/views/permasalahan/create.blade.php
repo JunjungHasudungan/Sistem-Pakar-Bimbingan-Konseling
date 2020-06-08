@@ -47,7 +47,7 @@
                   </div>
                   <div class="form-group">
                   <label>Solusi Permasalahan :</label>
-                    <textarea name="solusi" class="form-control" rows="4" placeholder="Jelaskan Solusi mengenai Permasalahan ini...">
+                    <textarea name="solusi" class="form-control" value="{{old('solusi')}}" rows="4" placeholder="Jelaskan Solusi mengenai Permasalahan ini...">
                     </textarea>
                   </div>
                   <div class="card-footer">
