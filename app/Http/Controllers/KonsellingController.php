@@ -50,6 +50,7 @@ class KonsellingController extends Controller
      */
     public function store(Request $request)
     {
+        $bimbingan_id = $request->bimbingan_id;
         $this->validate($request, [
             'gejala' => 'required'
         ]);

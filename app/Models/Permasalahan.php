@@ -15,7 +15,7 @@ class Permasalahan extends Model
     
     public function gejala()
     {
-    	return $this->belongsToMany(Gejala::class, 'basepengetahuan')->withTimestamps();;
+    	return $this->belongsToMany(Gejala::class, 'gejalaPermasalahan')->withTimestamps();;
     }
 
     public function attachGejala($gejala_id) {

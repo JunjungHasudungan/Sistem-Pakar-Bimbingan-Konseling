@@ -17,6 +17,7 @@
       <div class="card-body">
         <form method="POST" action="{{ route('konselling.store') }}">
                 @csrf
+              <input type="hidden" name="bimbingan_id" value="{{ $bimbingan_id }}">
                 <div class="form-group">
                     <label>Gejala-gejala yang nampak pada Sosial anda :</label>
                     <div class="col-md-12">
