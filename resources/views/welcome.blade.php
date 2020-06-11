@@ -74,7 +74,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Sistem Pakar
                 </div>
 
                 <div class="links">

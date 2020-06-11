@@ -1,14 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
-    <div class="container justify-content-center">
-        <div class="navbar-wrapper text-center">
-            <a href="#" class="navbar-brand">
-                {{ trans('panel.site_title') }}
-            </a>
-        </div>
-    </div>
-</nav>
 <div class="wrapper wrapper-full-page">
     <div class="page-header login-page header-filter">
         <div class="container">
@@ -31,7 +22,7 @@
                                 {{ csrf_field() }}
 
                                 <div class="form-group">
-                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" required autofocus placeholder="{{ trans('global.login_email') }}" name="email" value="{{ old('email', null) }}">
+                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" required autofocus placeholder="email" name="email" value="{{ old('email', null) }}">
                                     @if($errors->has('email'))
                                         <div class="invalid-feedback">
                                             {{ $errors->first('email') }}
@@ -40,7 +31,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required placeholder="{{ trans('global.login_password') }}" name="password">
+                                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required placeholder="password" name="password">
                                     @if($errors->has('password'))
                                         <div class="invalid-feedback">
                                             {{ $errors->first('password') }}
@@ -53,22 +44,14 @@
                                     <div class="col-md-12">
                                         <div class="icheck-primary">
                                             <input type="checkbox" name="remember" id="remember">
-                                            <label for="remember">{{ trans('global.remember_me') }}</label>
+                                            <label for="remember">remember me</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer justify-content-center">
-                                    <button type="submit" class="btn btn-primary btn-link btn-lg">{{ trans('global.login') }}</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">login</button>
                                 </div>
                             </form>
-                        </div>
-                        <!-- /.login-card-body -->
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <a class="" href="{{ route('password.request') }}">
-                                <small>{{ trans('global.forgot_password') }}</small>
-                            </a>
                         </div>
                     </div>
                 </div>
