@@ -14,22 +14,26 @@
           <thead>
             <tr>
               <th style="width: 1%"> NO </th>
-              <th style="width: 10%"> Kode Konselling </th>
-              <th style="width: 30%"> Keterangan Konselling </th>
+              <th style="width: 10%"> NIM </th>
+              <th style="width: 15%"> Nama Lengkap </th>
+              <th style="width: 10%"> Permasalahan di alami </th>    
+              <th style="width: 40%"> Gejala di alami </th>                            
               <th style="width: 20%"> Aksi </th>
             </tr>
           </thead>
-                @foreach($konselling as $k)
+                {{-- @foreach($konselling as $k) --}}
               <tbody>
                   <tr>
-                      <td> {{$loop->iteration}} </td>
-                      <td>  {{$k->gejala_id}} </td>
-                      <td> {{$k->permasalahan_id}} </td>
+                      <td> {{-- {{$loop->iteration}} --}} 1</td>
+                      <td>  {{-- {{$k->gejala_id}} --}} 168023</td>
+                      <td> {{-- {{$k->permasalahan_id}} --}} Rendi</td>
+                      <td> {{-- {{$k->permasalahan_id}} --}}  Karir dan pekerjaan</td>
+                      <td> {{-- {{$k->permasalahan_id}} --}}   Bingung ,ragu dan sukar dalam memahami dan menyelesaikan pelajaran, Belum memahami secara keseluruhan bidang kerja yang di minati</td>
                       <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="{{route('konselling.show', $k->id)}}">
+                          <a class="btn btn-primary btn-sm" href="{{-- {{route('konselling.show', $k->id)}} --}}">
                             <i class="fas fa-folder"></i>View
                           </a>
-                          <a class="btn btn-info btn-sm" href="{{route('konselling.edit', $k->id)}}">
+                          <a class="btn btn-info btn-sm" href="{{-- {{route('konselling.edit', $k->id)}} --}}">
                             <i class="fas fa-pencil-alt"></i>Edit
                           </a>
                           <a class="btn btn-danger btn-sm" href="#">
@@ -37,7 +41,7 @@
                           </a>
                       </td>
                   </tr>
-                  @endforeach
+                  {{-- @endforeach --}}
           </table>
         </div>
         <div class="pagination justify-content-center" style="margin:20px 0">
