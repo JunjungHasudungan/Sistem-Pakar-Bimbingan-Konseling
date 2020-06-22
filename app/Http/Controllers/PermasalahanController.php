@@ -41,13 +41,18 @@ class PermasalahanController extends Controller
     {   
         $permasalahan = new Permasalahan();
          $this->validate($request,[
-            'kodePermasalahan' => 'required',
             'keteranganPermasalahan' => 'required',
             'solusi' => 'required'
         ]);
+        $permasalahan->keteranganPermasalahan = $request->kodePermasalahan;
+        $permasalahan->solusi = $request->solusi;
+        foreach ($request->gejala as $gejala_id) {
+            $permasalahan->attachGejala($gejala_id);
+        }
 
         $permasalahan = Permasalahan::create($request->all());
-        return redirect()->route('permasalahan.index')->with('status','Data Permasalahan Berhasil Di Tambah');      
+        $permasalahan->save();
+        return redirect()->route('permasalahan.index')->with('status','Data Berhasil Di Tambah ke dalam basePengetahuan');      
     }
 
 
@@ -86,7 +91,7 @@ class PermasalahanController extends Controller
     {
         $this->validate($request,[
         'kodePermasalahan' =>'required',
-        'keteranganPermasalahan' => 'required'
+        'solusi' => 'required'
         ]);
 
         $permasalahan = Permasalahan::find($id);

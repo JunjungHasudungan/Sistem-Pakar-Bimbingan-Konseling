@@ -43,7 +43,6 @@ class GejalaController extends Controller
     public function store(Request $request)
     {
             $this->validate($request,[
-            'kodeGejala' => 'required',
             'namaGejala' => 'required',
         ]);
  
@@ -85,7 +84,6 @@ class GejalaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'kodeGejala' =>'required',
             'namaGejala' => 'required'
         ]);
 

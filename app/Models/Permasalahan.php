@@ -4,15 +4,15 @@ namespace App\Models;
 use App\Models\Relasi;
 use App\Models\Solusi;
 use App\Models\Gejala;
+use App\Models\KodePermasalahan;
 use Illuminate\Database\Eloquent\Model;
 
 class Permasalahan extends Model
 {
     protected $guarded = [];
     protected $table = 'permasalahan';
-    protected $fillable = ['kodePermasalahan','keteranganPermasalahan', 'solusi'];
+    protected $fillable = ['keteranganPermasalahan', 'solusi'];
 
-    
     public function gejala()
     {
     	return $this->belongsToMany(Gejala::class, 'gejalaPermasalahan')->withTimestamps();;

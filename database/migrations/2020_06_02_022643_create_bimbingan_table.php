@@ -15,7 +15,6 @@ class CreateBimbinganTable extends Migration
     {
         Schema::create('bimbingan', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('kodeBimbingan');
             $table->char('nim');
             $table->string('namaLengkap');
             $table->string('status');

@@ -21,7 +21,6 @@
               <thead>
                   <tr>
                       <th style="width: 1%"> NO </th>
-                      <th style="width: 5%"> Kode Bimbingan </th>
                       <th style="width: 10%"> Nama Lengkap </th>
                       <th style="width: 5%"> NIM </th>
                       <th style="width: 5%"> Jenis Kelamin </th>
@@ -32,7 +31,6 @@
                 @foreach($bimbingan as $b)
                   <tr>
                     <td> {{ $loop->iteration }} </td>
-                    <td> {{ $b->kodeBimbingan }} </td>
                     <td> {{ $b->namaLengkap }} </td>
                     <td> {{ $b->nim }}</td>
                     <td> {{ $b->jenisKelamin }}</td>

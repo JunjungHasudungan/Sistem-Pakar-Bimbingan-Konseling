@@ -19,7 +19,6 @@
               <thead>
                   <tr>
                       <th style="width: 1%"> NO </th>
-                      <th style="width: 10%"> Kode Permasalahan </th>
                       <th style="width: 30%"> Keterangan Permasalahan </th>
                       <th style="width: 30%"> Keterangan Solusi </th>
                       <th style="width: 20%"> Aksi </th>
@@ -29,7 +28,6 @@
                 <tbody>
                     <tr>
                         <td> {{$loop->iteration}} </td>
-                        <td> {{$p->kodePermasalahan}} </td>
                         <td> {{$p->keteranganPermasalahan}} </td>
                         <td> {{$p->solusi}} </td>
                         <td class="project-actions text-right">

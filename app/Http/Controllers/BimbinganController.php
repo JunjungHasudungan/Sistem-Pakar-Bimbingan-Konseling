@@ -40,7 +40,6 @@ class BimbinganController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'kodeBimbingan' => 'required',
             'nim' => 'required|size:7',
             'namaLengkap' => 'required',
             'status' => 'required',
@@ -85,7 +84,6 @@ class BimbinganController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'kodeBimbingan' => 'required',
             'nim' => 'required|size:7',
             'namaLengkap' => 'required',
             'status' => 'required',

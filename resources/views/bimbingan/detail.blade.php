@@ -15,9 +15,6 @@
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>Kode Bimbingan</b> <a class="float-right">{{ $bimbingan->kodeBimbingan }}</a>
-                  </li>
-                  <li class="list-group-item">
                     <b> NIM </b> <a class="float-right">{{ $bimbingan->nim }}</a>
                   </li>
                   <li class="list-group-item">

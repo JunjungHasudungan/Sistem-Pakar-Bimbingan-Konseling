@@ -15,8 +15,6 @@ class CreateGejalaPermasalahanTable extends Migration
     {
         Schema::create('gejalaPermasalahan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->char('kodeRelasi');
-            $table->string('status');
             $table->integer('permasalahan_id')->unsigned();
             $table->integer('gejala_id')->unsigned();
             $table->timestamps();

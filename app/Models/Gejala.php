@@ -11,7 +11,7 @@ class Gejala extends Model
 {
     protected $guarded = [];
     protected $table = 'gejala';
-    protected $fillable = ['kodeGejala','namaGejala','permasalahan_id', 'jawaban'];
+    protected $fillable = ['namaGejala'];
 
     public function permasalahan()
     {

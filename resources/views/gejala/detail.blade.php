@@ -11,9 +11,6 @@
             </div>
               <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
-                  <b>Kode Gejala</b> <a class="float-right">{{ $gejala->kodeGejala }}</a>
-                </li>
-                <li class="list-group-item">
                   <b>Keterangan Gejala</b> <a class="float-right">{{ $gejala->namaGejala }}</a>
                 </li>
                 <li class="list-group-item">
