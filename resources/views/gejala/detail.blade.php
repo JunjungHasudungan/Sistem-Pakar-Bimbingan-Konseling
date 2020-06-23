@@ -11,7 +11,10 @@
             </div>
               <ul class="list-group list-group-unbordered mb-3">
                 <li class="list-group-item">
-                  <b>Keterangan Gejala</b> <a class="float-right">{{ $gejala->namaGejala }}</a>
+                  <b>Kode Gejala</b> <a class="float-right">{{ $gejala->kodeGejala }}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Keterangan Gejala</b> <a class="float-right">{{ $gejala->keteranganGejala }}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Created at :</b> <a class="float-right">{{$gejala->created_at->format(' H:i d-m-y ')}}</a>

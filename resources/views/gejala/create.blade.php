@@ -13,8 +13,12 @@
         <form method="POST" action="{{route('gejala.store')}}">
           @csrf
             <div class="form-group">
-              <label for="namaGejala"><strong> Keterangan Gejala</strong></label>
-                <input type="text" name="namaGejala" value="{{old('namaGejala')}}" class="form-control "  id="namaGejala" >
+              <label for="kodeGejala"><strong> Kode Keterangan Gejala </strong></label>
+                <input type="text" name="kodeGejala" value="{{old('kodeGejala')}}" placeholder=" Example: KG01" class="form-control"  id="kodeGejala" >
+            </div>
+            <div class="form-group">
+              <label for="keteranganGejala"><strong> Keterangan Gejala</strong></label>
+                <input type="text" name="keteranganGejala" placeholder="Keterangan pada Permasalahan..." value="{{old('keteranganGejala')}}" class="form-control "  id="keteranganGejala" >
             </div>
               <div class="form-group">
                 <input type="submit" class="btn btn-success" value="Simpan">

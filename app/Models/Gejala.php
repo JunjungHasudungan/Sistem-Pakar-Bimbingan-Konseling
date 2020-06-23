@@ -11,11 +11,11 @@ class Gejala extends Model
 {
     protected $guarded = [];
     protected $table = 'gejala';
-    protected $fillable = ['namaGejala'];
+    protected $fillable = ['kodeGejala','keteranganGejala'];
 
     public function permasalahan()
     {
-    	return $this->belongsTo(Permasalahan::class, 'basepengetahuan');
+    	return $this->belongsToMany(Permasalahan::class, 'basepengetahuan');
     }
     
     public function bimbingan() {

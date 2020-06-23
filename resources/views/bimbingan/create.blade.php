@@ -13,6 +13,10 @@
         <form method="POST" action="{{route('bimbingan.store')}}">
           @csrf
         <div class="form-group">
+          <label for="kodeBimbingan"><strong> Kode Bimbingan </strong></label>
+            <input type="text" name="kodeBimbingan" value="{{old('kodeBimbingan')}}" placeholder=" Example: KB01" class="form-control"  id="kodeBimbingan" >
+            </div>
+        <div class="form-group">
           <label for="nim"><strong> NIM </strong></label>
             <input type="text" name="nim" value="{{old('nim')}}" placeholder="Masukkan NIM anda " class="form-control" id="nim"> </div>
         <div class="form-group">

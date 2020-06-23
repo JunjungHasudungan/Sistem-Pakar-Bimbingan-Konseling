@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bimbingan extends Model
 {
     protected $table = 'bimbingan';
-    protected $fillable = ['nim', 'namaLengkap', 'status', 'jenisKelamin'];
+    protected $fillable = ['kodeBimbingan','nim', 'namaLengkap', 'status', 'jenisKelamin'];
     protected $guarded = [];
 
     

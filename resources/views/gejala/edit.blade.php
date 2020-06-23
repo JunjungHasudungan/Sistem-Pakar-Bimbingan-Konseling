@@ -10,12 +10,16 @@
             <form method="POST" action="{{route('gejala.update',[$gejala->id])}}">
               @csrf
                 @method('PUT')
-		      <div class="form-group {{ $errors->has('namaGejala') ? 'has-error' : '' }}">
-            <label for="namaGejala"><strong> Keterangan Gejala</strong></label>
-        	   <input type="text" id="namaGejala" name="namaGejala" class="form-control" value="{{$gejala->namaGejala }}" require>
-		          @if($errors->has('namaGejala'))
+          <div class="form-group">
+            <label for="kodeGejala"><strong> Kode Keterangan Gejala </strong></label>
+              <input type="text" name="kodeGejala" value="{{$gejala->kodeGejala}}" class="form-control"  id="kodeGejala" >
+            </div>
+		      <div class="form-group {{ $errors->has('keteranganGejala') ? 'has-error' : '' }}">
+            <label for="keteranganGejala"><strong> Keterangan Gejala</strong></label>
+        	   <input type="text" id="keteranganGejala" name="keteranganGejala" class="form-control" value="{{$gejala->keteranganGejala }}" require>
+		          @if($errors->has('keteranganGejala'))
 		            <p class="help-block">
-		              {{ $errors->first('namaGejala') }}
+		              {{ $errors->first('keteranganGejala') }}
 		            </p>
 		          @endif
           </div>

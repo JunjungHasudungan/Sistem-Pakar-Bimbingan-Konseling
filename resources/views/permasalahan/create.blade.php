@@ -12,8 +12,12 @@
               <form method="POST" action="{{route('permasalahan.store')}}">
                 @csrf
                   <div class="form-group">
+                    <label for="kodePermasalahan"><strong> Kode Keterangan Permasalahan </strong></label>
+                      <input type="text" name="kodePermasalahan" value="{{old('kodePermasalahan')}}" placeholder=" Example: KP01" class="form-control"  id="kodePermasalahan" >
+                  </div>
+                  <div class="form-group">
                     <label for="keteranganPermasalahan"><strong> Keterangan Permasalahan </strong></label>
-                      <input type="text" name="keteranganPermasalahan" value="{{old('keteranganPermasalahan')}}" placeholder="keterangan pada masalah yang terjadi" class="form-control"  id="keteranganPermasalahan" >
+                      <input type="text" name="keteranganPermasalahan" value="{{old('keteranganPermasalahan')}}" placeholder="keterangan pada masalah yang terjadi..." class="form-control"  id="keteranganPermasalahan" >
                   </div>
                   <div class="form-group">
                   <label>Solusi Permasalahan :</label>
@@ -26,7 +30,7 @@
                         <div class="col-md-12">
                           @foreach ($gejala as $g)
                             <div class="checkbox">
-                              <label><input type="checkbox" name="gejala[]" value=" {{ $g->id }} "> {{ $g->namaGejala }} </label>
+                              <label><input type="checkbox" name="gejala[]" value=" {{ $g->id }} "> {{ $g->keteranganGejala }} </label>
                           </div>
                           @endforeach
                         </div>

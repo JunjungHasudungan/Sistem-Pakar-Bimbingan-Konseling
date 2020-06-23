@@ -19,6 +19,7 @@
             <thead>
               <tr>
                 <th style="width: 1%"> NO </th>
+                <th style="width: 5%"> Kode Gejala </th>
                 <th style="width: 30%"> Keterangan Gejala </th>
                 <th style="width: 10%" style="text-decoration: center"> Aksi </th>
               </tr>
@@ -27,7 +28,8 @@
               @foreach($gejala as $g)
                 <tr>
                   <td> {{ $loop->iteration }} </td>
-                  <td> {{ $g->namaGejala }} </td>
+                  <td> {{$g->kodeGejala}} </td>
+                  <td> {{ $g->keteranganGejala }} </td>
                   <td class="project-actions text-right">
                     <a class="btn btn-secondary btn-sm" href="{{route('gejala.show', $g->id)}}"><i data-feather="eye"></i>
                       View

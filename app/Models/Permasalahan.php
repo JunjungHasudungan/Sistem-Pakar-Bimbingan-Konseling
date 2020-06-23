@@ -1,17 +1,16 @@
 <?php
 
 namespace App\Models;
-use App\Models\Relasi;
+
+use Illuminate\Database\Eloquent\Model;
 use App\Models\Solusi;
 use App\Models\Gejala;
-use App\Models\KodePermasalahan;
-use Illuminate\Database\Eloquent\Model;
 
 class Permasalahan extends Model
 {
     protected $guarded = [];
     protected $table = 'permasalahan';
-    protected $fillable = ['keteranganPermasalahan', 'solusi'];
+    protected $fillable = ['kodePermasalahan','keteranganPermasalahan', 'solusi'];
 
     public function gejala()
     {
