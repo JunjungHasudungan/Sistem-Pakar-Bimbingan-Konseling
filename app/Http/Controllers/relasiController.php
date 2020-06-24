@@ -28,10 +28,8 @@ class relasiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $relasi = new Relasi();
-        $permasalahan = Permasalahan::all();
-        $gejala = Gejala::all();
-        return view('Relasi.create',compact('gejala', 'relasi', 'permasalahan'));
+    {   
+        // 
     }
 
     /**
@@ -42,24 +40,7 @@ class relasiController extends Controller
      */
     public function store(Request $request)
     {   
-        $relasi = new Relasi();
-
-        $this->validate($request, [
-            'kodeRelasi' => 'required',
-            'permasalahan_id' => 'required',
-            'gejala_id' => 'required',
-            'status' => 'required'
-        ]);
-
-        $relasi = [
-            'kodeRelasi' => $request['kodeRelasi'],            
-            'permasalahan_id' => $request['permasalahan_id'],
-            'gejala_id' => $request['gejala_id'],
-            'status' => $request['status'],            
-        ];
-
-        $relasi =  Relasi::create($relasi);
-        return redirect()->route('relasi.index')->with('status','Data Relasi Berhasil di Tambah');
+        // 
     }
 
     /**

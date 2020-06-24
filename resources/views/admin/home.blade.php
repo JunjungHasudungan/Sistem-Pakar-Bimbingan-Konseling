@@ -18,7 +18,7 @@
           <div class="col-lg-2 col-6">
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$relasi->count()}}</h3>
+                <h3>{{$permasalahan->count()}}</h3>
                 <p>Data Relasi</p>
               </div>
               <div class="icon">

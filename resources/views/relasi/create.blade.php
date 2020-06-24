@@ -12,36 +12,6 @@
           <div class="card-body">
             <form method="post" action="{{route('relasi.store')}}">
               @csrf
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Kode Relasi</label>
-                <select type="text" name="kodeRelasi" class="form-control" id="exampleFormControlSelect1">
-                  <option value="KG01" >KG01</option>
-                  <option value="KG02" >KG02</option>
-                  <option value="KG03" >KG03</option>
-                  <option value="KG04" >KG04</option>
-                  <option value="KG05" >KG05</option>
-                  <option value="KG06" >KG06</option>
-                  <option value="KG07" >KG07</option>
-                  <option value="KG08" >KG08</option>
-                  <option value="KG09" >KG09</option>
-                  <option value="KG10" >KG10</option>
-                  <option value="KG11" >KG11</option>
-                  <option value="KG12" >KG12</option>
-                  <option value="KG13" >KG13</option>
-                  <option value="KG14" >KG14</option>
-                  <option value="KG15" >KG15</option>
-                  <option value="KG16" >KG16</option>
-                  <option value="KG17" >KG17</option>
-                  <option value="KG18" >K1G8</option>
-                  <option value="KG19" >GK19</option>
-                  <option value="KG20" >KG20</option>
-                  <option value="KG21" >KG21</option>
-                  <option value="KG22" >KG22</option>
-                  <option value="KG23" >KG23</option>
-                  <option value="KG24" >KG24</option>
-                  <option value="KG25" >KG25</option>
-                </select>
-            </div>
         <div class="form-group">
           <label class="control-label">Nama permasalahan</label>
             <select id="permasalahan" name="permasalahan_id" class="form-control">
@@ -54,22 +24,14 @@
             </select>
         </div>
         <div class="form-group">
-          <label class="control-label">Nama gejala</label>
-            <select id="gejala" name="gejala_id" class="form-control">
-              <option value="">--- Pilih Gejala Permasalahan---</option>
-                @foreach($gejala as $g)
-                  <option value="{{$g->id}}" @if ($g->id == $relasi->gejala_id) selected="selected" @endif>
-                     {{$g->namaGejala}}
-                  </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1"><strong>Status</strong></label>
-            <select type="text" name="status" class="form-control" id="exampleFormControlSelect1">
-              <option value="Ya" >Ya</option>
-              <option value="Tidak" >Tidak</option>
-            </select>
+          <label>Gejala-gejala </label>
+            <div class="col-md-12">
+              @foreach ($gejala as $g)
+                <div class="checkbox">
+                    <label><input class="flat" type="checkbox" name="gejala_id[]" value="{{ $g->id }}">  {{ $g->keteranganGejala }} </label>
+                </div>
+              @endforeach
+            </div>
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-success" value="Simpan">

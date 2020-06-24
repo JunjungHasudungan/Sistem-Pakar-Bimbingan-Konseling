@@ -14,16 +14,16 @@ class Relasi extends Model
 
     public function permasalahan()
     {
-    	$this->belongsTo(Permasalahan::class, 'permasalahan_id');
+    	$this->belongsToMany(Permasalahan::class, 'gejalaPermasalahan');
     }
 
     public function gejala()
     {
-        $this->belongsTo(Gejala::class, 'gejala_id');
+        $this->belongsToMany(Gejala::class, 'gejalaPermasalahan');
     }
 
     public function bimbingan()
     {
-    	$this->belongsTo(Bimbingan::class);
+    	$this->belongsToMany(Bimbingan::class);
     } 
 }

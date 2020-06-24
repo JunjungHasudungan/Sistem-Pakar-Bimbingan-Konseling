@@ -24,18 +24,16 @@
                     <textarea name="solusi" class="form-control" value="{{old('solusi')}}" rows="4" placeholder="Jelaskan Solusi mengenai Permasalahan ini...">
                     </textarea>
                   </div>
-                  <div class="col-md-6">            
-                      <div class="form-group">
-                        <label>Gejala-gejala yang terjadi :</label>
-                        <div class="col-md-12">
-                          @foreach ($gejala as $g)
-                            <div class="checkbox">
-                              <label><input type="checkbox" name="gejala[]" value=" {{ $g->id }} "> {{ $g->keteranganGejala }} </label>
+                  <div class="form-group">
+                    <label>Gejala-gejala </label>
+                      <div class="col-md-12">
+                        @foreach ($gejala as $gejala)
+                          <div class="checkbox">
+                              <label><input class="flat" type="checkbox" name="gejala[]" value="{{ $gejala->id }}">  {{ $gejala->keteranganGejala }} </label>
                           </div>
-                          @endforeach
-                        </div>
+                        @endforeach
                       </div>
-                    </div>
+                  </div>
                   <div class="card-footer">
                     <input type="submit" class="btn btn-success" value="Simpan">
                   </div>

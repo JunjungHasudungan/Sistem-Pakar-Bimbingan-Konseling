@@ -45,15 +45,14 @@ class PermasalahanController extends Controller
             'keteranganPermasalahan' => 'required',
             'solusi' => 'required'
         ]);
-        $permasalahan->keteranganPermasalahan = $request->kodePermasalahan;
-        $permasalahan->solusi = $request->solusi;
+
+        $permasalahan = Permasalahan::create($request->all());
+        $permasalahan->save();
         foreach ($request->gejala as $gejala_id) {
             $permasalahan->attachGejala($gejala_id);
         }
         // dd($permasalahan);
-        $permasalahan = Permasalahan::create($request->all());
-        $permasalahan->save();
-        return redirect()->route('permasalahan.index')->with('status','Data Berhasil Di Tambah ke dalam basePengetahuan');      
+        return redirect()->route('permasalahan.index')->with('status','Data Berhasil Di Tambah Kedalam basePengetahuan');      
     }
 
 

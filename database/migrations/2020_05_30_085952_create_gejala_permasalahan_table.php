@@ -14,8 +14,6 @@ class CreateGejalaPermasalahanTable extends Migration
     public function up()
     {
         Schema::create('gejalaPermasalahan', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->char('kodeRelasi');
             $table->integer('permasalahan_id')->unsigned();
             $table->integer('gejala_id')->unsigned();
             $table->timestamps();
