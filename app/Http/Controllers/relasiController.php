@@ -16,8 +16,8 @@ class relasiController extends Controller
     {
         $gejala = Gejala::all();
         $permasalahan = Permasalahan::all();
-        $relasi = DB::table('gejalaPermasalahan')->paginate(5);
-        return view('Relasi.index',compact('permasalahan','gejala', 'relasi'));
+        $relasi = DB::table('gejalaPermasalahan')->paginate(10);
+        return view('relasi.index',compact('permasalahan','gejala', 'relasi'));
 
         
     }
@@ -51,8 +51,8 @@ class relasiController extends Controller
      */
     public function show($id)
     {
-        $relasi = Relasi::find($id);
-        return view('relasi.detail', compact('relasi'));
+        $permasalahan = Permasalahan::find($id);
+        return view('relasi.detail', compact('permasalahan'));
     }
 
     /**
@@ -61,13 +61,11 @@ class relasiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Permasalahan $permasalahan)
     {       
-        $relasi = new Relasi();
         $permasalahan = Permasalahan::all();
         $gejala = Gejala::all();
-        $relasi =Relasi::find($id);
-        return view('relasi.edit',compact('gejala', 'relasi', 'permasalahan'));
+        return view('permasalahan.edit',compact('gejala','permasalahan'));
     }
 
     /**

@@ -4,7 +4,7 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Data Basis Pengetahuan</h3>
+        <h3 class="card-title">Data Baseknowledge</h3>
       </div>
           <li class="nav-item d-none d-sm-inline-block">
             <a href="{{route('permasalahan.create')}}" class="nav-link">Tambah Data</a>
@@ -20,8 +20,8 @@
                   <tr>
                       <th style="width: 1%"> No </th>
                       <th style="width: 15%"> Keterangan Permasalahan  </th>
-                      <th style="width: 15%"> Keterangan Gejala  </th>
-                      <th style="width: 7%"> Aksi </th>
+                      <th style="width: 20%"> Keterangan Gejala  </th>
+                      <th style="width: 10%" > Aksi </th>
                   </tr>
               </thead>
               <tbody>
@@ -39,13 +39,13 @@
                       </ul>
                     </td>
                     <td class="project-actions text-right">
-                      <a class="btn btn-primary btn-sm" href="{{route('permasalahan.show', $p->id)}}">
+                      <a class="btn btn-primary btn-sm" href="{{route('relasi.show', $p->id)}}">
                         <i class="fas fa-folder"></i>View
                       </a>
-                      <a class="btn btn-info btn-sm" href=" {{route('permasalahan.edit', $p->id)}} ">
+                      <a class="btn btn-info btn-sm" href=" {{route('relasi.edit', $p->id)}} ">
                         <i class="fas fa-pencil-alt"></i>Edit
                       </a>
-                        <form action="{{route('permasalahan.destroy',$p->id)}}" method="post" style="display: inline-block;">
+                        <form action="{{route('relasi.destroy',$p->id)}}" method="post" style="display: inline-block;">
                           @csrf
                             @method('DELETE')
                               <input type="submit" name="" value="Delete" class="btn btn-danger btn-sm">

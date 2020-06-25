@@ -7,28 +7,23 @@
           <div class="col">
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
-                <div class="text-center"><p><strong>Detail Data Relasi</strong></p>
+                <div class="text-center"><p><strong>Detail Data Baseknowledge</strong></p>
                 </div>
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b> Kode Relasi</b> <a class="float-right">{{ $relasi->kodeRelasi }}</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b> Status</b> <a class="float-right">{{ $relasi->status }}</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b> Relasi ID Gejala</b> <a class="float-right">{{ $relasi->gejala_id }}</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b> Relasi ID Permasalahan</b> <a class="float-right">{{ $relasi->permasalahan_id }}</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Created at :</b> <a class="float-right">{{$relasi->created_at->format(' H:i d-m-y ')}}</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Update at :</b> <a class="float-right">{{ $relasi->updated_at->format(' H:i d-m-y ') }}</a>
-                  </li>
-                </ul>
+                  <tbody>
+                    <tr>
+                      <td>{{ $permasalahan->keteranganPermasalahan }}</td>
+                    <td>
+                      <ul style="padding-left: 16px;">
+                        @forelse($permasalahan->gejala as $g)
+                          <li>{{ $g->keteranganGejala }}</li>
+                        @empty
+                          Maaf, belum ada data gejala untuk Permasalahan ini.
+                        @endforelse
+                      </ul>
+                    </td>
+                    <td> {{ $permasalahan->solusi }} </td>
+                  </tr>
+              </tbody>
                 <a href="{{route('relasi.index')}}" class="btn btn-primary btn-block"><b>Kembali</b></a>
               </div>  
             </div>
