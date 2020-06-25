@@ -52,7 +52,7 @@ class PermasalahanController extends Controller
             $permasalahan->attachGejala($gejala_id);
         }
         // dd($permasalahan);
-        return redirect()->route('permasalahan.index')->with('status','Data Berhasil Di Tambah Kedalam basePengetahuan');      
+        return redirect()->route('permasalahan.index')->with('status','Berhasil Di Tambah Kedalam basePengetahuan');      
     }
 
 
@@ -74,10 +74,10 @@ class PermasalahanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $permasalahan =Permasalahan::find($id);
-        return view('permasalahan.edit', compact('permasalahan'));
+    public function edit(Permasalahan $permasalahan)
+    {   
+        $gejala =Gejala::all();
+        return view('permasalahan.edit', compact('gejala','permasalahan'));
     }
 
     /**
@@ -89,14 +89,24 @@ class PermasalahanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-        'kodePermasalahan' =>'required',
-        'solusi' => 'required'
+        $permasalahan = new Permasalahan();
+         $this->validate($request,[
+            'keteranganPermasalahan' => 'required',
+            'solusi' => 'required'
         ]);
 
-        $permasalahan = Permasalahan::find($id);
-        $permasalahan->update($request->all());
-        return redirect()->route('permasalahan.index')->with('status', 'Data Berhasil di Update');
+        $permasalahan = Permasalahan::create($request->all());
+        // Menempelkan nilai baru
+        foreach ($request->gejala as $gejala_id) {
+            $permasalahan->attachGejala($gejala_id);
+        }
+        // Memisahkan/Menggantikan nilai
+        foreach ($request->gejala as $gejala_id) {
+            $permasalahan->detachGejala($gejala_id);
+        }
+        // dd($permasalahan);
+        $permasalahan->save();
+        return redirect()->route('permasalahan.index')->with('status','Berhasil Di Update Kedalam basePengetahuan');
     }
 
     /**

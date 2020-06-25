@@ -24,7 +24,7 @@
                       <th style="width: 10%"> Nama Lengkap </th>
                       <th style="width: 5%"> NIM </th>
                       <th style="width: 5%"> Jenis Kelamin </th>
-                      <th style="width: 10%"> Aksi </th>
+                      <th style="width: 7%"> Aksi </th>
                   </tr>
               </thead>
               <tbody>
