@@ -4,7 +4,7 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Data Baseknowledge</h3>
+        <h3 class="card-title">Data Basis Pengetahuan</h3>
       </div>
           <li class="nav-item d-none d-sm-inline-block">
             <a href="{{route('permasalahan.create')}}" class="nav-link">Tambah Data</a>

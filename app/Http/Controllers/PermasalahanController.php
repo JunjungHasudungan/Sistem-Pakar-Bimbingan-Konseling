@@ -43,7 +43,8 @@ class PermasalahanController extends Controller
         $permasalahan = new Permasalahan();
          $this->validate($request,[
             'keteranganPermasalahan' => 'required',
-            'solusi' => 'required'
+            'solusi' => 'required',
+            'gejala' => 'required'
         ]);
 
         $permasalahan = Permasalahan::create($request->all());
@@ -52,7 +53,7 @@ class PermasalahanController extends Controller
             $permasalahan->attachGejala($gejala_id);
         }
         // dd($permasalahan);
-        return redirect()->route('permasalahan.index')->with('status','Berhasil Di Tambah Kedalam basePengetahuan');      
+        return redirect()->route('permasalahan.index')->with('status','Berhasil Di Tambah Kedalam baseKnowledge');      
     }
 
 

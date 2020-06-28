@@ -7,7 +7,7 @@
           <div class="col">
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
-                <div class="text-center"><p><strong>Detail Data Baseknowledge</strong></p>
+                <div class="text-center"><p><strong>Detail Data Basis Pengetahuan</strong></p>
                 </div>
                   <tbody>
                     <tr>
