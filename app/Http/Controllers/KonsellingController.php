@@ -6,6 +6,7 @@ use App\Models\Permasalahan;
 use App\Models\Bimbingan;
 use App\Models\Gejala;
 use App\Models\Relasi;
+use App\Models\TempKonselling;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -50,50 +51,26 @@ class KonsellingController extends Controller
      */
     public function store(Request $request)
     {
-        $bimbingan_id = $request->bimbingan_id;
-        $this->validate($request, [
-            'gejala' => 'required'
-        ]);
-        
-        // Menggambil nilai dari form gejala
-        $permasalahan = Permasalahan::all();
-        $data = $request->all();
-        $gejala = $data['gejala'];
-        // dd($gejala);    
-
-        $relasi = Relasi::select('permasalahan_id')
-            ->whereIn('gejala_id', $gejala)
-            ->groupBy('permasalahan_id')
-            ->get();
-        // dd($relasi);
-
-        foreach ($relasi as $key => $value) {
-            $permasalahan[] = $value->permasalahan_id;
-        }
-        // Menampilkan nilai pada Relasi
-        // dd($permasalahan);
-
-        foreach ($permasalahan as $key => $value){
-            // dd($value);
-            $count = 0;
-            foreach ($gejala as $k => $v) {
-                $cek = Relasi::select('nilai_cf')
-                    ->where([
-                        ['permasalahan_id', '=', $value],
-                        ['gejala_id', '=', $v],
-                    ])->get();
-                // dd($value);
-                // dd($gejala);
-
-                if(!$cek->isEmpty()){
-                    $nilai_cf[$value][] = $cek;
-                    // dd($permasalahan);
+         $bimbingan_id = $request->bimbingan_id;
+                foreach ($request->gejala as $gejala_id) {
+                    $pasien = Permasalahan::find($bimbingan_id)->attachGejala($gejala_id);
+                    $gejala = Gejala::find($gejala_id);
+                    foreach ($gejala->permasalahan as $permasalahan) {
+                        $temp_konselling = TempKonselling::where('bimbingan_id', $bimbingan_id)->where('permasalahan_id', $permasalahan->id);
+                        $temp_diag = $temp_konselling->first();
+                        if (!$temp_diag) {
+                            $temp_diag = new TempKonselling;
+                            $temp_diag->bimbingan_id = $bimbingan_id;
+                            $temp_diag->permasalahan_id = $permasalahan->id;
+                            $temp_diag->gejala = count($permasalahan->gejala);
+                            $temp_diag->gejala_terpenuhi = 1;
+                            $temp_diag->save();
+                        } else {
+                            $temp_diag = $temp_konselling->update(['gejala_terpenuhi' => $temp_diag->gejala_terpenuhi + 1]);
+                        }
+                    }
                 }
-               
             }
-        }
-         return view('konselling.index');
-    }
 
     /**
      * Display the specified resource.

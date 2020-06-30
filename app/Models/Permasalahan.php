@@ -8,8 +8,8 @@ use App\Models\Gejala;
 
 class Permasalahan extends Model
 {
-    protected $guarded = [];
     protected $table = 'permasalahan';
+    protected $guarded = ['id', 'created_at', 'updated_at'];
     protected $fillable = ['kodePermasalahan','keteranganPermasalahan', 'solusi'];
 
     public function gejala()
