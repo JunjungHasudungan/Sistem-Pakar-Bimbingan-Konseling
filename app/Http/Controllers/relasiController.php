@@ -88,7 +88,7 @@ class relasiController extends Controller
      */
     public function destroy($id)
     {
-        Relasi::find($id)->delete();
-        return redirect()->route('relasi.index')->with('status','Data Berhasil di Hapus');
+        // Relasi::find($id)->delete();
+        // return redirect()->route('relasi.index')->with('status','Data Berhasil di Hapus');
     }
 }
