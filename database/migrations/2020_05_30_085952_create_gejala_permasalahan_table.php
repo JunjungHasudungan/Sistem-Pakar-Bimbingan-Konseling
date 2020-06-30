@@ -14,6 +14,7 @@ class CreateGejalaPermasalahanTable extends Migration
     public function up()
     {
         Schema::create('gejalaPermasalahan', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('permasalahan_id')->unsigned();
             $table->integer('gejala_id')->unsigned();
             $table->timestamps();

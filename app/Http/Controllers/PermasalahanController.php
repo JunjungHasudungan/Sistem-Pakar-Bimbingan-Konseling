@@ -116,9 +116,12 @@ class PermasalahanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Permasalahan $permasalahan)
     {
-        Permasalahan::find($id)->delete();
-        return redirect()->route('permasalahan.index')->with('status','Data Berhasil di Hapus');
+        $p->delete();
+        foreach ($p->gejala as $gejala) {
+            $p->detachGejala($gejala->id);
+        }
+        return redirect()->route('permasalahan.index')->with('status','Data  Berhasil di Hapus dari basePengetahuan');
     }
 }
