@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('gejalaEdit')
+@section('content')
   <div class="container">
     <div class="card mt-5">
         <div class="card-header text-left">

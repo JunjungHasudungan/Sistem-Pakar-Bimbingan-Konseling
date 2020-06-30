@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('solusiIndex')
+@section('content')
 
     <!-- Main content -->
     <section class="content">

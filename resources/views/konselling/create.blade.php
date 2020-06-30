@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('konsellingCreate')
+@section('content')
  <div class="container">
     <div class="card mt-5">
               @if(session('status'))

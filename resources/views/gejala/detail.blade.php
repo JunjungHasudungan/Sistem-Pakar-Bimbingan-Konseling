@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('gejalaDetail')
+@section('content')
   <section class="content">
     <div class="container-fluid">
       <div class="row">

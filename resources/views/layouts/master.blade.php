@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -6,8 +7,6 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <style>
         .bd-placeholder-img {
@@ -24,21 +23,13 @@
             }
         }
         </style>        
-          <!-- Select2 -->
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
-        <!-- icheck bootstrap -->
-        <link rel="stylesheet" href="{{asset('css/icheck-bootstrap.min.css')}}">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="../../dist/css/adminlte.min.css">        
         <!-- Google Font: Source Sans Pro -->
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link href="https://getbootstrap.com/docs/4.5/examples/dashboard/dashboard.css" rel="stylesheet">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -47,18 +38,22 @@
                 <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <ul class="navbar-nav px-3">
 
-                    <li class="nav-item text-nowrap">
-                        <a class="nav-link" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                <ul class="nav">
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                          Sudung
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        {{-- <a class="dropdown-item" href="#">Action</a> --}}
+                        {{-- <div class="dropdown-divider"></div> --}}
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
+                      </div>
                     </li>
                 </ul>
             </nav>
@@ -105,42 +100,7 @@
                     </nav>
     
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                        <!-- Page Gejala -->                        
-                        @yield('gejalaIndex')
-                        @yield('gejalaCreate')
-                        @yield('gejalaEdit')
-                        @yield('gejalaDetail')
-
-                        <!-- Page Permasalahan -->
-                        @yield('permasalahancontent')
-                        @yield('permasalahanCreate')
-                        @yield('permasalahanEdit')
-                        @yield('permasalahahDetail')
-
-                        <!-- Page Relasi -->
-                        @yield('relasiIndex')
-                        @yield('relasiCreate')
-                        @yield('relasiEdit')
-                        @yield('relasiDetail')
-
-                        <!-- Page Solusi -->
-                        @yield('solusiIndex')
-                        @yield('solusiCreate')
-                        @yield('solusiEdit')
-
-                        <!-- Page Bimbingan -->
-                        @yield('bimbinganIndex')
-                        @yield('bimbinganCreate')
-                        @yield('bimbinganEdit')
-                        @yield('bimbinganDetail')
-
-                        <!-- Page Konselling -->
-                        @yield('konsellingIndex')
-                        @yield('konsellingCreate')
-                        @yield('konsellingEdit')
-                        
-                        <!-- Dashboard admin -->
-                        @yield('dashboard')
+                        @yield('content')
                     </main>
                 </div>
             </div>
@@ -148,15 +108,7 @@
       
      <!-- Bootstrap -->   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-{{--         <script>
-            feather.replace();
-        </script>
-          <!-- Select2 --> --}}
-
     </body>
 </html>
