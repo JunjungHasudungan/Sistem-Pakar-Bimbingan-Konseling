@@ -14,7 +14,7 @@
               </div>
 
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fas fa-users"></i>
               </div>
 
               <a class="nav-link" href="{{route('bimbingan.index')}}" >More info </a>

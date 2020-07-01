@@ -31,13 +31,13 @@
                       <td> {{-- {{$k->permasalahan_id}} --}}   Bingung ,ragu dan sukar dalam memahami dan menyelesaikan pelajaran, Belum memahami secara keseluruhan bidang kerja yang di minati</td>
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="{{-- {{route('konselling.show', $k->id)}} --}}">
-                            <i class="fas fa-folder"></i>View
+                            View
                           </a>
                           <a class="btn btn-info btn-sm" href="{{-- {{route('konselling.edit', $k->id)}} --}}">
-                            <i class="fas fa-pencil-alt"></i>Edit
+                            Edit
                           </a>
                           <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash"></i>Delete
+                            Delete
                           </a>
                       </td>
                   </tr>

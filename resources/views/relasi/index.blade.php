@@ -40,7 +40,7 @@
                     </td>
                     <td class="project-actions text-right">
                       <a class="btn btn-primary btn-sm" href="{{route('relasi.show', $p->id)}}">
-                        <i class="fas fa-folder"></i>View
+                        <i class="fas fa-eye"></i>View
                       </a>
                       <a class="btn btn-info btn-sm" href=" {{route('relasi.edit', $p->id)}} ">
                         <i class="fas fa-pencil-alt"></i>Edit

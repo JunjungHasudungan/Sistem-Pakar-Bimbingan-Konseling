@@ -24,9 +24,12 @@
             }
         }
         </style>        
+
+        <link href="dashboard.css" rel="stylesheet">
           <!-- Select2 -->
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <!-- icheck bootstrap -->
         <link rel="stylesheet" href="{{asset('css/icheck-bootstrap.min.css')}}">
         <!-- Theme style -->
@@ -36,6 +39,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
         <!-- Ionicons -->
+        <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link href="https://getbootstrap.com/docs/4.5/examples/dashboard/dashboard.css" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -69,35 +73,33 @@
                     <div class="sidebar-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{route('home')}}">
-                                <span data-feather="home"></span>
-                                Dashboard <span class="sr-only">(current)</span>
+                                <a class="nav-link " href="{{route('home')}}">
+                                    <i class="fas fa-tachometer-alt"></i>Dashboard
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('permasalahan.index')}}">
-                                <span data-feather="message-circle"></span>
-                                    Permasalahan
+                                    <i class="fas fa-cogs"></i>Permasalahan
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('gejala.index') }}">
-                                    <span data-feather="heart"></span> Gejala
+                                    <i class="ion ion-pie-graph"></i> Gejala
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('relasi.index')}}">
-                                    <span data-feather="briefcase"></span> Basis Pengetahuan 
+                                    <i class="fas fa-sliders-h"></i> Basis Pengetahuan 
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('bimbingan.index')}}">
-                                    <span data-feather="briefcase"></span> Bimbingan 
+                                    <i class="fas fa-users-cog"></i> Bimbingan 
                                 </a>
                             </li>
                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('konselling.index')}}">
-                                    <span data-feather="briefcase"></span> Konselling 
+                                    <i class="fas fa-users"></i> Konselling 
                                 </a>
                             </li>       
                         </ul>
@@ -105,6 +107,8 @@
                     </nav>
     
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
+      <canvas class="my-2 w-100" id="myChart" width="0" height="0"></canvas>
                         <!-- Page Gejala -->                        
                         @yield('gejalaIndex')
                         @yield('gejalaCreate')

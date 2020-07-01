@@ -21,7 +21,7 @@
                 <th style="width: 1%"> NO </th>
                 <th style="width: 5%"> Kode Gejala </th>
                 <th style="width: 30%"> Keterangan Gejala </th>
-                <th style="width: 10%" style="text-decoration: center"> Aksi </th>
+                <th style="width: 15%" style="text-decoration: center"> Aksi </th>
               </tr>
             </thead>
             <tbody>
@@ -31,12 +31,8 @@
                   <td> {{$g->kodeGejala}} </td>
                   <td> {{ $g->keteranganGejala }} </td>
                   <td class="project-actions text-right">
-                    <a class="btn btn-secondary btn-sm" href="{{route('gejala.show', $g->id)}}"><i data-feather="eye"></i>
-                      View
-                    </a>
-                    <a class="btn btn-info btn-sm" href="{{route('gejala.edit', $g->id)}}">
-                      <i data-feather="heart"></i> Edit
-                    </a>
+                    <a class="btn btn-secondary btn-sm" href="{{route('gejala.show', $g->id)}}"> View </a>
+                    <a class="btn btn-info btn-sm" href="{{route('gejala.edit', $g->id)}}"> Edit </a>
                       <form action="{{route('gejala.destroy',$g->id)}}" method="post" style="display: inline-block;">
                         @csrf
                           @method('DELETE')
