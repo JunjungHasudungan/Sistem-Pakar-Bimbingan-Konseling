@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('bimbinganCreate')
+@section('content')
   <section class="content">
     <div class="card">
       <div class="card-header">
