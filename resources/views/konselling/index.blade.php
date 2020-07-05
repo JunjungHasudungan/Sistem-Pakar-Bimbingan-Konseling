@@ -14,9 +14,9 @@
           <thead>
             <tr>
               <th style="width: 1%"> NO </th>
-              <th style="width: 10%"> NIM </th>
-              <th style="width: 15%"> Nama Lengkap </th>
-              <th style="width: 10%"> Permasalahan di alami </th>    
+              <th style="width: 5%"> NIM </th>
+              <th style="width: 10%"> Nama Lengkap </th>
+              <th style="width: 20%"> Permasalahan di alami </th>    
               <th style="width: 40%"> Gejala di alami </th>                            
               <th style="width: 20%"> Aksi </th>
             </tr>

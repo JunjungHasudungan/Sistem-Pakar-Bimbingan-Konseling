@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('dashboard')
+@section('content')
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -14,7 +14,7 @@
               </div>
 
               <div class="icon">
-                <i class="fas fa-users"></i>
+                <i class="fas fa-users-cog"></i>
               </div>
 
               <a class="nav-link" href="{{route('bimbingan.index')}}" >More info </a>
@@ -25,10 +25,10 @@
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$relasi->count()}}</h3>
-                <p>Data Relasi</p>
+                <p>Data Basis Pengetahuan</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fas fa-sliders-h"></i>
               </div>
               <a class="nav-link" href="{{route('relasi.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
@@ -60,7 +60,7 @@
               </div>
 
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-cogs"></i>
               </div>
 
               <a class="nav-link" href="{{route('permasalahan.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>

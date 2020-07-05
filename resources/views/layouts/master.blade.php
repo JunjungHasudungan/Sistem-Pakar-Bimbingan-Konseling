@@ -108,8 +108,6 @@
                     </nav>
     
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-<<<<<<< HEAD
-
       <canvas class="my-2 w-100" id="myChart" width="0" height="0"></canvas>
                         <!-- Page Gejala -->                        
                         @yield('gejalaIndex')
@@ -147,9 +145,7 @@
                         
                         <!-- Dashboard admin -->
                         @yield('dashboard')
-=======
                         @yield('content')
->>>>>>> ecdb662927d574dd75d82e07e05804e0a8b4babd
                     </main>
                 </div>
             </div>

@@ -37,10 +37,10 @@
                     <td class="project-actions text-right">
                       <a class="btn btn-primary btn-sm" href="{{route('bimbingan.show', $b->id)}}"> View </a>
                       <a class="btn btn-info btn-sm" href="{{route('bimbingan.edit', $b->id)}}">
-                        <i class="fas fa-pencil-alt"></i>Edit
+                         Edit
                       </a>
                       <a class="btn btn-danger btn-sm" href="#">
-                        <i class="fas fa-trash"></i>Delete
+                         Delete
                       </a>
                     </td>
                   </tr>
