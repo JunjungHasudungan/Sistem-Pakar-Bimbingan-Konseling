@@ -4,7 +4,7 @@
   <div class="container">
     <div class="card mt-5">
       <div class="card-header text-left">
-        <strong>Tambah Data Bimbingan</strong>
+        <strong>Registrasi Data Diri Bimbingan konseling</strong>
       </div>
       @if($errors->all())
         @include('layouts.error')

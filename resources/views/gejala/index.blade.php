@@ -31,7 +31,6 @@
                   <td> {{$g->kodeGejala}} </td>
                   <td> {{ $g->keteranganGejala }} </td>
                   <td class="project-actions text-right">
-                    <a class="btn btn-secondary btn-sm" href="{{route('gejala.show', $g->id)}}"> View </a>
                     <a class="btn btn-info btn-sm" href="{{route('gejala.edit', $g->id)}}"> Edit </a>
                       <form action="{{route('gejala.destroy',$g->id)}}" method="post" style="display: inline-block;">
                         @csrf

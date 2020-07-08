@@ -98,11 +98,11 @@
                                     <i class="fas fa-users-cog"></i> Bimbingan 
                                 </a>
                             </li>
-                           <li class="nav-item">
+{{--                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('konselling.index')}}">
                                     <i class="fas fa-users"></i> Konselling 
                                 </a>
-                            </li>       
+                            </li>  --}}      
                         </ul>
                     </div>
                     </nav>
@@ -110,7 +110,7 @@
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <canvas class="my-2 w-100" id="myChart" width="0" height="0"></canvas>
                         <!-- Page Gejala -->                        
-                        @yield('gejalaIndex')
+{{--                         @yield('gejalaIndex')
                         @yield('gejalaCreate')
                         @yield('gejalaEdit')
                         @yield('gejalaDetail')
@@ -127,7 +127,7 @@
                         @yield('relasiEdit')
                         @yield('relasiDetail')
 
-                        <!-- Page Solusi -->
+                        Page Solusi
                         @yield('solusiIndex')
                         @yield('solusiCreate')
                         @yield('solusiEdit')
@@ -144,7 +144,7 @@
                         @yield('konsellingEdit')
                         
                         <!-- Dashboard admin -->
-                        @yield('dashboard')
+                        @yield('dashboard') --}}
                         @yield('content')
                     </main>
                 </div>

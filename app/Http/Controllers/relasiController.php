@@ -63,9 +63,9 @@ class relasiController extends Controller
      */
     public function edit(Permasalahan $permasalahan)
     {       
-        $permasalahan = Permasalahan::all();
-        $gejala = Gejala::all();
-        return view('permasalahan.edit',compact('gejala','permasalahan'));
+        // $permasalahan = Permasalahan::all();
+        // $gejala = Gejala::all();
+        // return view('permasalahan.edit',compact('gejala','permasalahan'));
     }
 
     /**

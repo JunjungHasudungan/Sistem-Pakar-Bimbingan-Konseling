@@ -118,9 +118,9 @@ class PermasalahanController extends Controller
      */
     public function destroy(Permasalahan $permasalahan)
     {
-        $p->delete();
-        foreach ($p->gejala as $gejala) {
-            $p->detachGejala($gejala->id);
+        $permasalahan->delete();
+        foreach ($permasalahan->gejala as $gejala) {
+            $permasalahan->detachGejala($gejala->id);
         }
         return redirect()->route('permasalahan.index')->with('status','Data  Berhasil di Hapus dari basePengetahuan');
     }

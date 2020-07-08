@@ -50,6 +50,7 @@
                                 </div>
                                 <div class="card-footer justify-content-center">
                                     <button type="submit" class="btn btn-primary btn-lg">login</button>
+                                    <a href="{{ url('/register') }}">belum punya akun?</a>
                                 </div>
                             </form>
                         </div>

@@ -21,6 +21,7 @@
                       <th style="width: 1%"> No </th>
                       <th style="width: 15%"> Keterangan Permasalahan  </th>
                       <th style="width: 20%"> Keterangan Gejala  </th>
+                      <th style="width: 20%"> Keterangan Solusi  </th>
                       <th style="width: 10%" > Aksi </th>
                   </tr>
               </thead>
@@ -38,14 +39,12 @@
                         @endforelse
                       </ul>
                     </td>
+                    <td>{{ $p->solusi }}</td>
                     <td class="project-actions text-right">
-                      <a class="btn btn-primary btn-sm" href="{{route('relasi.show', $p->id)}}">
-                         View
-                      </a>
-                      <a class="btn btn-info btn-sm" href=" {{route('relasi.edit', $p->id)}} ">
+                      <a class="btn btn-info btn-sm" href=" {{route('permasalahan.edit', $p->id)}} ">
                          Edit
                       </a>
-                        <form action="{{route('relasi.destroy',$p->id)}}" method="post" style="display: inline-block;">
+                        <form action="{{route('permasalahan.destroy',$p->id)}}" method="post" style="display: inline-block;">
                           @csrf
                             @method('DELETE')
                               <input type="submit" name="" value="Delete" class="btn btn-danger btn-sm">
