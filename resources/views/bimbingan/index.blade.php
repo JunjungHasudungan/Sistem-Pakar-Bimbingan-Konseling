@@ -35,8 +35,8 @@
                     <td> {{ $b->nim }}</td>
                     <td> {{ $b->jenisKelamin }}</td>
                     <td class="project-actions text-right">
-                      <a class="btn btn-primary btn-sm" href="{{route('bimbingan.show', $b->id)}}"> View </a>
-                      <a class="btn btn-info btn-sm" href="{{route('bimbingan.edit', $b->id)}}">
+                      <a class="btn btn-info btn-sm" href="{{route('bimbingan.show', $b->id)}}"> View </a>
+                      <a class="btn btn-warning btn-sm" href="{{route('bimbingan.edit', $b->id)}}">
                          Edit
                       </a>
                       <a class="btn btn-danger btn-sm" href="#">

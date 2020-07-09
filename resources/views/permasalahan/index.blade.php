@@ -31,7 +31,7 @@
                         <td> {{$p->keteranganPermasalahan}} </td>
                         <td> {{$p->solusi}} </td>
                         <td class="project-actions text-right">
-                            <a class="btn btn-info btn-sm" href=" {{route('permasalahan.edit', $p->id)}} ">
+                            <a class="btn btn-warning btn-sm" href=" {{route('permasalahan.edit', $p->id)}} ">
                               Edit
                             </a>
                             <form name="{{ $p->id }}" action="{{route('permasalahan.destroy',$p->id)}}" method="post" style="display: inline-block;">

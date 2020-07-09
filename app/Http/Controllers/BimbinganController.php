@@ -40,7 +40,6 @@ class BimbinganController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'kodeBimbingan' => 'required|size:4',            
             'nim' => 'required|size:7',
             'namaLengkap' => 'required',
             'status' => 'required',
