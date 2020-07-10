@@ -1,83 +1,63 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
+@section('content')
+<div class="wrapper wrapper-full-page">
+    <div class="page-header login-page header-filter">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+                    <div class="card card-login mb-3">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">
+                                <strong>  sistem Pakar</strong> <h5>Bimbingan Konselling</h5>
+                            </h4>
+                        </div>
+                        <div class="card-body login-card-body">
+                            @if(\Session::has('message'))
+                                <p class="alert alert-info">
+                                    {{ \Session::get('message') }}
+                                </p>
+                            @endif
 
-        <title>sistem Pakar</title>
+                            <form action="{{ route('login') }}" method="POST">
+                                {{ csrf_field() }}
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="cover.css" rel="stylesheet">
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+                                <div class="form-group">
+                                    <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" required autofocus placeholder="email" name="email" value="{{ old('email', null) }}">
+                                    @if($errors->has('email'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('email') }}
+                                        </div>
+                                    @endif
+                                </div>
 
-            .full-height {
-                height: 100vh;
-            }
+                                <div class="form-group">
+                                    <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required placeholder="password" name="password">
+                                    @if($errors->has('password'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('password') }}
+                                        </div>
+                                    @endif
+                                </div>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Pakar</a>
-                    <a href="{{ route('bimbingan.create') }}">Mulai Bimbingan</a>
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md" style="font-size: 50px;">
-                    Sistem Pakar 
-                    <h1 style="font-size: 20px;"> Bimbingan Konselling </h1>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="icheck-primary">
+                                            <input type="checkbox" name="remember" id="remember">
+                                            <label for="remember">remember me</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer justify-content-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">login</button>
+                                    <a href="{{ url('/register') }}">belum punya akun?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+</div>
+@endsection

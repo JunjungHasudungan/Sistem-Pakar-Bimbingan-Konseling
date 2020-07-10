@@ -40,7 +40,7 @@ class KonsellingController extends Controller
     {   
         $bimbingan_id = DB::table('tmpGejala')->get();
         $gejala = Gejala::all();
-        return view('konselling.create', compact('gejala', 'bimbingan_id'));   
+        return view('konselling.form', compact('gejala', 'bimbingan_id'));   
     }
 
     /**
@@ -49,8 +49,26 @@ class KonsellingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function proses(Request $request)
     {
+        $this->validate($request, [
+        'gejala' => 'required|min:2'
+        ],
+
+        [   'gejala.min' => 'Gejala yang di pilih minimal 2',
+            'gejala.required' => 'Gejala wajib dipilih']
+    );
+        $gejala = DB::table('gejala')->whereIn('id', $request->input('gejala'))->get();
+        $permasalahan = Permasalahan::orderBy('id', 'asc')->get();
+        $countHubungan = DB::table('gejalaPermasalahan')->groupBy('permasalahan_id')->get(['permasalahan_id'])->count();
+        $countPermasalahan = $permasalahan->count();
+        if ($countPermasalahan != $countHubungan) {
+            session()->flash('danger', 'alert-danger');
+            session()->flash('notifikasi', 'Maaf, terjadi kesalahan. Silakan coba beberapa saat lagi.');
+
+            // return redirect()->route('konsultasi.index');
+        }
+
          $bimbingan_id = $request->bimbingan_id;
                 foreach ($request->gejala as $gejala_id) {
                     $pasien = Permasalahan::find($bimbingan_id)->attachGejala($gejala_id);

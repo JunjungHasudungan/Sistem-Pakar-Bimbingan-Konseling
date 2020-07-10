@@ -15,7 +15,7 @@
           @include('layouts.error')
         @endif
       <div class="card-body">
-        <form method="POST" action="{{ route('konselling.store') }}">
+        <form method="POST" action="{{ route('konselling.proses') }}">
                 @csrf
               <input type="hidden" name="bimbingan_id" value="{{ $bimbingan_id }}">
                 <div class="form-group">
