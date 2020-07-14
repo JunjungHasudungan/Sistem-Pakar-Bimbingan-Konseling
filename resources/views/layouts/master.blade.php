@@ -84,7 +84,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('gejala.index') }}">
+                                <a class="nav-link" href="{{ route("gejala.index") }}">
                                     <i class="ion ion-pie-graph"></i> Gejala
                                 </a>
                             </li>

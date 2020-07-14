@@ -27,9 +27,9 @@
                   <div class="form-group">
                     <label>Gejala-gejala </label>
                       <div class="col-md-12">
-                        @foreach ($gejala as $gejala)
+                        @foreach ($gejala as $id => $gejala)
                           <div class="checkbox">
-                              <label><input class="flat" type="checkbox" name="gejala[]" value="{{ $gejala->id }}">  {{ $gejala->keteranganGejala }} </label>
+                              <label><input class="flat" type="checkbox" name="gejala[]" value="{{ $id }}">  {{ $gejala }} </label>
                           </div>
                         @endforeach
                       </div>

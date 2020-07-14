@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Konselling;
+use App\Models\Konseling;
 use App\Models\Permasalahan;
 use App\Models\Bimbingan;
 use App\Models\Gejala;
@@ -38,9 +38,10 @@ class KonsellingController extends Controller
 
     public function create()
     {   
+        $Konseling = Konseling::with('bimbingan')->get();
         $bimbingan_id = DB::table('tmpGejala')->get();
         $gejala = Gejala::all();
-        return view('konselling.form', compact('gejala', 'bimbingan_id'));   
+        return view('konselling.create', compact('gejala', 'bimbingan_id','Konseling'));   
     }
 
     /**
@@ -49,7 +50,7 @@ class KonsellingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function proses(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
         'gejala' => 'required|min:2'

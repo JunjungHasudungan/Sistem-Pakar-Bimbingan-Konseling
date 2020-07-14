@@ -3,7 +3,7 @@
 namespace App\Models;
 use App\Models\Relasi;
 use App\Models\Gejala;
-use App\Models\Bimbingan;
+use App\Models\Konseling;
 use Illuminate\Database\Eloquent\Model;
 
 class Bimbingan extends Model
@@ -22,4 +22,9 @@ class Bimbingan extends Model
     {
     	return $this->hasMany(Gejala::class);
     }
+
+    public function konseling()
+    {
+        return $this->hasOne(Konseling::class, 'bimbingan_id');
+    }  
 }

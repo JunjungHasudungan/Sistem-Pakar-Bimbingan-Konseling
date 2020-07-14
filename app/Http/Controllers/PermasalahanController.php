@@ -27,7 +27,7 @@ class PermasalahanController extends Controller
 
         public function create()
     {   
-        $gejala = Gejala::all();
+        $gejala = Gejala::all()->pluck('keteranganGejala','kodeGejala','id');
         return view('permasalahan.Create', compact('gejala'));
     }
 
@@ -44,8 +44,10 @@ class PermasalahanController extends Controller
          $this->validate($request,[
             'keteranganPermasalahan' => 'required',
             'solusi' => 'required',
-            'gejala' => 'required'
-        ]);
+            'gejala' => 'required|min:2'
+        ],
+        [   'gejala.min' => 'Gejala yang di pilih minimal 2',
+            'gejala.required' => 'Gejala wajib dipilih']);
 
         $permasalahan = Permasalahan::create($request->all());
         $permasalahan->save();
@@ -53,7 +55,7 @@ class PermasalahanController extends Controller
             $permasalahan->attachGejala($gejala_id);
         }
         // dd($permasalahan);
-        return redirect()->route('permasalahan.index')->with('status','Berhasil Di Tambah Kedalam baseKnowledge');      
+        return redirect()->route('permasalahan.index')->with('status','Berhasil Di Tambah Kedalam basis Pengetahuan');      
     }
 
 
