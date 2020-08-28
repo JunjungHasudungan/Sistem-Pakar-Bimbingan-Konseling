@@ -1,3 +1,3 @@
 ## Pendahuluan
 
-Repository mengenai sistem pakar konseling.
+Repository mengenai sistem pakar Bimbingan-konseling.
