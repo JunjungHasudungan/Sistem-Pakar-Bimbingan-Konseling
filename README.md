@@ -1,3 +1,3 @@
 ## Pendahuluan
 
-Repository skripsi sudung mengenai sistem pakar konseling.
+Repository mengenai sistem pakar konseling.
